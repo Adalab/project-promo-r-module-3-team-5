@@ -1,0 +1,35 @@
+.hidden {
+  display: none;
+}
+.icon {
+  cursor: pointer;
+}
+.main-background {
+  background-image: linear-gradient(to bottom, $white-four, $white-two 9%);
+}
+.palette-container {
+  padding-top: rem(18);
+}
+.radio,
+.create-btn {
+  cursor: pointer;
+}
+.transition {
+  overflow: hidden;
+  -webkit-transition: 1s ease height;
+  -moz-transition: 1s ease height;
+  -o-transition: 1s ease height;
+  transition: 1s ease height;
+}
+.rotate {
+  transform: rotate(90deg);
+}
+.icon-form {
+  color: $reset-bkg;
+}
+.fa-wand-sparkles {
+  cursor: pointer;
+  &:hover {
+    color: $border-logo;
+  }
+}

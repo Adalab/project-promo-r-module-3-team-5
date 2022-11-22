@@ -1,0 +1,38 @@
+.footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding-top: rem(18);
+  padding-bottom: rem(20);
+  gap: rem(12);
+  bottom: rem(20);
+  width: 100%;
+
+  &-copy {
+    color: $brownish-grey;
+    font-size: 14px;
+  }
+
+  &-img {
+    width: rem(103);
+    height: rem(40);
+  }
+
+  @media all and (min-width: 768px) {
+    flex-direction: row;
+    justify-content: space-between;
+    padding-left: rem(41);
+    padding-right: rem(40);
+  }
+  @media (min-width: 1200px) {
+    max-width: rem(1500);
+    margin: auto;
+  }
+}
+
+.line-footer {
+  width: 100%;
+  height: rem(1);
+  background-color: $brownish-grey;
+}
