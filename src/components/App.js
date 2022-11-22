@@ -1,8 +1,25 @@
+import {useState} from 'react';
 import alohomoraLogo from '../images/card.png';
 import adalabLogo from '../images/adalab.png';
 import "../styles/main.scss";
 
 function App() {
+  const [userData, setUserData] = useState({
+    completeName: '',
+    position: '',
+    // addImage: '',
+    email: '',
+    phone: '',
+    linkedin: '',
+    github: '',
+  })
+
+  const handleInput = (ev) => {
+    const inputValue = ev.target.value;
+    const inputName = ev.target.name;
+    setUserData ({...userData, [inputName]:inputValue});
+  }
+
   return (
     <div className="App">
     <header className="header">
@@ -55,7 +72,7 @@ function App() {
           <button className="card__button js-reset-btn" title="Reset" name="Reset" type="button"><i className="far fa-trash-alt" aria-hidden="true"></i> Reset</button>
           <article className="card__article colorsPalette-1">
             <div className="card__article--data preview-header">
-              <h2 className="name js-preview-name">Nombre Apellidos</h2>
+              <h2 className="name js-preview-name">Nombre Apellidos</h2>     {/* {userData.name} */}
               <p className="text js-preview-job">Front-end developer</p>
             </div>
             <div className="card__article--photo js__profile-image"></div>
@@ -122,36 +139,36 @@ function App() {
                   <i className="form-arrow js-fill-down fa-solid fa-wand-sparkles"></i>
                 </div>
               </legend>
-              <div className="form-container transition hidden js-fill">
+              <div className="form-container transition js-fill">
                 <p className="form-label">Los campos con * son obligatorios</p>
                 <label className="form-label" htmlFor="completeName">Nombre completo*</label>
 
-                <input className="form-input js-input-name" type="text" placeholder="Ej: Maricarmen" id="completeName" name="completeName" required=""/>
+                <input className="form-input js-input-name" type="text" placeholder="Ej: Maricarmen" id="completeName" name="completeName" required="" onChange={handleInput}/>
 
                 <label className="form-label" htmlFor="position">Puesto*</label>
-                <input className="form-input js-input-job" type="text" placeholder="Ej: Front-end unicorn" id="position" name="position" required=""/>
+                <input className="form-input js-input-job" type="text" placeholder="Ej: Front-end unicorn" id="position" name="position" required="" onChange={handleInput}/>
 
                 <label className="form-label" htmlFor="">Imagen de perfil*</label>
 
                 <div className="form-add-image">
                   <label className="form-button" htmlFor="addImage">Añadir imagen</label>
 
-                  <input className="js__profile-upload-btn" type="file" id="addImage" name="addImage" accept="image/*" hidden="" required=""/>
+                  <input className="js__profile-upload-btn" type="file" id="addImage" name="addImage" accept="image/*" hidden="" required="" onChange={handleInput}/>
                   <div className="form-checkbox js__profile-preview"></div>
                 </div>
 
                 <label className="form-label" htmlFor="email">Email*</label>
-                <input className="form-input js-input-email" type="email" placeholder="Ej: maricarmen@gmail.com" id="email" name="email" href="" required=""/>
+                <input className="form-input js-input-email" type="email" placeholder="Ej: maricarmen@gmail.com" id="email" name="email" href="" required="" onChange={handleInput}/>
 
                 <label className="form-label" htmlFor="phone">Teléfono</label>
-                <input className="form-input js-input-phone" type="tel" placeholder="Ej:66687879" id="phone" name="phone" pattern="[0-9]{9}"/>
+                <input className="form-input js-input-phone" type="tel" placeholder="Ej:66687879" id="phone" name="phone" pattern="[0-9]{9}" onChange={handleInput}/>
 
                 <label className="form-label" htmlFor="linkedin">LinkedIn*</label>
 
-                <input className="form-input js-input-linkedin" type="text" placeholder="Ej: https://www.linkedin.com/in/mari-carmen/" id="linkedin" name="linkedin" required=""/>
+                <input className="form-input js-input-linkedin" type="text" placeholder="Ej: https://www.linkedin.com/in/mari-carmen/" id="linkedin" name="linkedin" required="" onChange={handleInput}/>
 
                 <label className="form-label" htmlFor="github">Github*</label>
-                <input className="form-input js-input-github" type="text" placeholder="Ej: maricarmen" id="github" name="github" required=""/>
+                <input className="form-input js-input-github" type="text" placeholder="Ej: maricarmen" id="github" name="github" required="" onChange={handleInput}/>
               </div>
               <div className="line"></div>
             </fieldset>
