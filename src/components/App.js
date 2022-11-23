@@ -1,3 +1,6 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
+/* eslint-disable react/jsx-no-target-blank */
+/* eslint-disable jsx-a11y/alt-text */
 import {useState} from 'react';
 import alohomoraLogo from '../images/card.png';
 import adalabLogo from '../images/adalab.png';
@@ -5,6 +8,7 @@ import "../styles/main.scss";
 
 function App() {
   const [userData, setUserData] = useState({
+    palete: "1",
     completeName: '',
     position: '',
     // addImage: '',
@@ -70,17 +74,17 @@ function App() {
             </div>
           </div>
           <button className="card__button js-reset-btn" title="Reset" name="Reset" type="button"><i className="far fa-trash-alt" aria-hidden="true"></i> Reset</button>
-          <article className="card__article colorsPalette-1">
+          <article className={`card__article colorsPalette-${userData.palete}`}>
             <div className="card__article--data preview-header">
-              <h2 className="name js-preview-name">Nombre Apellidos</h2>     {/* {userData.name} */}
-              <p className="text js-preview-job">Front-end developer</p>
+              <h2 className="name js-preview-name">{(userData.completeName === '') ? 'Nombre y Apellidos' :userData.completeName}</h2>
+              <p className="text js-preview-job">{(userData.position === '') ? 'Front-end developer' :userData.position}</p>
             </div>
             <div className="card__article--photo js__profile-image"></div>
             <nav className="card__article--links">
-              <a href="" className="preview-icon js-preview-phone"><i className="fa-solid fa-mobile-screen-button icon"></i></a>
-              <a href="" className="preview-icon js-preview-email"><i className="fa-regular fa-envelope icon"></i></a>
-              <a href="" className="preview-icon js-preview-linkedin"><i className="fa-brands fa-linkedin-in icon"></i></a>
-              <a href="" className="preview-icon js-preview-github"><i className="fa-brands fa-github-alt icon"></i></a>
+              <a href={`tel:${userData.phone}`} className="preview-icon js-preview-phone"><i className="fa-solid fa-mobile-screen-button icon"></i></a>
+              <a href={`mailto:${userData.email}`} className="preview-icon js-preview-email"><i className="fa-regular fa-envelope icon"></i></a>
+              <a href={userData.linkedin} className="preview-icon js-preview-linkedin" target="_blank"><i className="fa-brands fa-linkedin-in icon"></i></a>
+              <a href={userData.github} className="preview-icon js-preview-github" target="_blank"><i className="fa-brands fa-github-alt icon"></i></a>
             </nav>
           </article>
         </section>
@@ -92,7 +96,7 @@ function App() {
               <legend className="form-legend">
                 <span className="form-keyboard"><i className="icon-form fa-solid fa-object-ungroup"></i></span>
 
-                <span className="form-title--design">Diseña </span>
+                <span className="form-title--design">Diseña</span>
                 <div className="js-event">
                   <i className="form-arrow js-design-down fa-solid fa-wand-sparkles"></i>
                 </div>
@@ -101,7 +105,7 @@ function App() {
                 <div className="colorpalete">
                   <h2 className="colors">Colores</h2>
 
-                  <input type="radio" name="palete" className="colors1 js-paletteOne radio" value="1" id="paymentmethod1"/>
+                  <input type="radio" name="palete" className="colors1 js-paletteOne radio" value="1" id="paymentmethod1" onChange={handleInput} checked={userData.palete === "1"}/>
                   <section className="palete">
                     <div className="colors1__green"></div>
                     <div className="colors1__blueD"></div>
@@ -110,7 +114,7 @@ function App() {
                 </div>
 
                 <div className="colorpalete">
-                  <input type="radio" name="palete" className="colors2 js-paletteTwo radio" value="2" id="paymentmethod2"/>
+                  <input type="radio" name="palete" className="colors2 js-paletteTwo radio" value="2" id="paymentmethod2" onChange={handleInput} checked={userData.palete === "2"}/>
                   <section className="palete">
                     <div className="colors2__blood"></div>
                     <div className="colors2__rusty"></div>
@@ -119,7 +123,7 @@ function App() {
                 </div>
 
                 <div className="colorpalete">
-                  <input type="radio" name="palete" className="colosr3 js-paletteThree radio" value="3" id="paymentmethod3"/>
+                  <input type="radio" name="palete" className="colosr3 js-paletteThree radio" value="3" id="paymentmethod3" onChange={handleInput} checked={userData.palete === "3"}/>
                   <section className="palete">
                     <div className="colors3__slate"></div>
                     <div className="colors3__orange"></div>
@@ -143,10 +147,10 @@ function App() {
                 <p className="form-label">Los campos con * son obligatorios</p>
                 <label className="form-label" htmlFor="completeName">Nombre completo*</label>
 
-                <input className="form-input js-input-name" type="text" placeholder="Ej: Maricarmen" id="completeName" name="completeName" required="" onChange={handleInput}/>
+                <input className="form-input js-input-name" type="text" placeholder="Ej: Maricarmen" id="completeName" name="completeName" required="" onChange={handleInput} value={userData.completeName}/>
 
                 <label className="form-label" htmlFor="position">Puesto*</label>
-                <input className="form-input js-input-job" type="text" placeholder="Ej: Front-end unicorn" id="position" name="position" required="" onChange={handleInput}/>
+                <input className="form-input js-input-job" type="text" placeholder="Ej: Front-end unicorn" id="position" name="position" required="" onChange={handleInput} value={userData.position}/>
 
                 <label className="form-label" htmlFor="">Imagen de perfil*</label>
 
@@ -158,17 +162,17 @@ function App() {
                 </div>
 
                 <label className="form-label" htmlFor="email">Email*</label>
-                <input className="form-input js-input-email" type="email" placeholder="Ej: maricarmen@gmail.com" id="email" name="email" href="" required="" onChange={handleInput}/>
+                <input className="form-input js-input-email" type="email" placeholder="Ej: maricarmen@gmail.com" id="email" name="email" href="" required="" onChange={handleInput} value={userData.email}/>
 
                 <label className="form-label" htmlFor="phone">Teléfono</label>
-                <input className="form-input js-input-phone" type="tel" placeholder="Ej:66687879" id="phone" name="phone" pattern="[0-9]{9}" onChange={handleInput}/>
+                <input className="form-input js-input-phone" type="tel" placeholder="Ej:66687879" id="phone" name="phone" pattern="[0-9]{9}" onChange={handleInput} value={userData.phone}/>
 
                 <label className="form-label" htmlFor="linkedin">LinkedIn*</label>
 
-                <input className="form-input js-input-linkedin" type="text" placeholder="Ej: https://www.linkedin.com/in/mari-carmen/" id="linkedin" name="linkedin" required="" onChange={handleInput}/>
+                <input className="form-input js-input-linkedin" type="text" placeholder="Ej: https://www.linkedin.com/in/mari-carmen/" id="linkedin" name="linkedin" required="" onChange={handleInput} value={userData.linkedin}/>
 
                 <label className="form-label" htmlFor="github">Github*</label>
-                <input className="form-input js-input-github" type="text" placeholder="Ej: maricarmen" id="github" name="github" required="" onChange={handleInput}/>
+                <input className="form-input js-input-github" type="text" placeholder="Ej: maricarmen" id="github" name="github" required="" onChange={handleInput} value={userData.github}/>
               </div>
               <div className="line"></div>
             </fieldset>
