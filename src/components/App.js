@@ -277,9 +277,10 @@ function App() {
                       id="addImage"
                       name="addImage"
                       accept="image/*"
-                      hidden=""
+                      hidden="hidden"
                       required=""
                       onChange={handleInput}
+
                     />
                     <div className="form-checkbox js__profile-preview"></div>
                   </div>
