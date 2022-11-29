@@ -5,11 +5,12 @@ import { useState } from 'react';
 import alohomoraLogo from '../images/card.png';
 import adalabLogo from '../images/adalab.png';
 import '../styles/main.scss';
+import Api from '../services/Api';
 
 function App() {
   const [userData, setUserData] = useState({
     palete: '1',
-    completeName: '',
+    name: '',
     position: '',
     // addImage: '',
     email: '',
@@ -25,15 +26,23 @@ function App() {
   };
 
   const handleReset = (ev) => {
-    userData.completeName = '';
-    userData.palete = '1';
-    userData.position = '';
-    userData.email = '';
-    userData.phone = '';
-    userData.linkedin = '';
-    userData.github = '';
+    setUserData({
+      name: '',
+      palete: '1',
+      position: '',
+      email: '',
+      phone: '',
+      linkedin: '',
+      github: '',
+    });
+  };
 
-    handleInput(ev);
+  //TERMINAR EL FETCH (FALTA URL + CREAR VARIABLE ESTADO )
+  const handleCreateCard = (ev) => {
+    ev.preventDefault();
+    Api(userData).then((data) => {
+      console.log(data); // La respuesta del servidor. Necesitamos guardarla en una variable estado para luego pintarla html.
+    });
   };
 
   return (
@@ -106,9 +115,7 @@ function App() {
             >
               <div className="card__article--data preview-header">
                 <h2 className="name js-preview-name">
-                  {userData.completeName === ''
-                    ? 'Nombre y Apellidos'
-                    : userData.completeName}
+                  {userData.name === '' ? 'Nombre y Apellidos' : userData.name}
                 </h2>
                 <p className="text js-preview-job">
                   {userData.position === ''
@@ -233,7 +240,7 @@ function App() {
                   <p className="form-label">
                     Los campos con * son obligatorios
                   </p>
-                  <label className="form-label" htmlFor="completeName">
+                  <label className="form-label" htmlFor="name">
                     Nombre completo*
                   </label>
 
@@ -241,11 +248,11 @@ function App() {
                     className="form-input js-input-name"
                     type="text"
                     placeholder="Ej: Maricarmen"
-                    id="completeName"
-                    name="completeName"
+                    id="name"
+                    name="name"
                     required=""
                     onChange={handleInput}
-                    value={userData.completeName}
+                    value={userData.name}
                   />
 
                   <label className="form-label" htmlFor="position">
@@ -280,7 +287,6 @@ function App() {
                       hidden="hidden"
                       required=""
                       onChange={handleInput}
-
                     />
                     <div className="form-checkbox js__profile-preview"></div>
                   </div>
@@ -357,7 +363,10 @@ function App() {
                   </div>
                 </legend>
                 <div className="share-div hidden js-share">
-                  <button className="create-btn js-create-button">
+                  <button
+                    className="create-btn js-create-button"
+                    onClick={handleCreateCard}
+                  >
                     <i className="fa-solid fa-address-card"></i>Crear tarjeta
                   </button>
                 </div>
