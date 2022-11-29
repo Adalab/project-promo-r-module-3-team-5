@@ -23,7 +23,7 @@ const Form = (props) => {
             id="name"
             name="name"
             required=""
-            onChange={handleInput}
+            // onChange={handleInput}
             value={props.name}
           />
 
@@ -37,7 +37,7 @@ const Form = (props) => {
             id="position"
             name="position"
             required=""
-            onChange={handleInput}
+            // onChange={handleInput}
             value={props.position}
           />
 
@@ -58,7 +58,7 @@ const Form = (props) => {
               accept="image/*"
               hidden="hidden"
               required=""
-              onChange={handleInput}
+              // onChange={handleInput}
             />
             <div className="form-checkbox js__profile-preview"></div>
           </div>
@@ -74,7 +74,7 @@ const Form = (props) => {
             name="email"
             href=""
             required=""
-            onChange={handleInput}
+            // onChange={handleInput}
             value={props.email}
           />
 
@@ -88,7 +88,7 @@ const Form = (props) => {
             id="phone"
             name="phone"
             pattern="[0-9]{9}"
-            onChange={handleInput}
+            // onChange={handleInput}
             value={props.phone}
           />
 
@@ -103,7 +103,7 @@ const Form = (props) => {
             id="linkedin"
             name="linkedin"
             required=""
-            onChange={handleInput}
+            // onChange={handleInput}
             value={props.linkedin}
           />
 
@@ -117,7 +117,7 @@ const Form = (props) => {
             id="github"
             name="github"
             required=""
-            onChange={handleInput}
+            // onChange={handleInput}
             value={props.github}
           />
         </div>
