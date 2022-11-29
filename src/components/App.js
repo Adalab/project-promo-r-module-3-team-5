@@ -6,6 +6,7 @@ import alohomoraLogo from '../images/card.png';
 import adalabLogo from '../images/adalab.png';
 import '../styles/main.scss';
 import Api from '../services/Api';
+import CardPreview from './CardPreview';
 
 function App() {
   const [userData, setUserData] = useState({
@@ -110,289 +111,252 @@ function App() {
             >
               <i className="far fa-trash-alt" aria-hidden="true"></i> Reset
             </button>
-            <article
-              className={`card__article colorsPalette-${userData.palete}`}
-            >
-              <div className="card__article--data preview-header">
-                <h2 className="name js-preview-name">
-                  {userData.name === '' ? 'Nombre y Apellidos' : userData.name}
-                </h2>
-                <p className="text js-preview-job">
-                  {userData.position === ''
-                    ? 'Front-end developer'
-                    : userData.position}
-                </p>
-              </div>
-              <div className="card__article--photo js__profile-image"></div>
-              <nav className="card__article--links">
-                <a
-                  href={`tel:${userData.phone}`}
-                  className="preview-icon js-preview-phone"
-                >
-                  <i className="fa-solid fa-mobile-screen-button icon"></i>
-                </a>
-                <a
-                  href={`mailto:${userData.email}`}
-                  className="preview-icon js-preview-email"
-                >
-                  <i className="fa-regular fa-envelope icon"></i>
-                </a>
-                <a
-                  href={userData.linkedin}
-                  className="preview-icon js-preview-linkedin"
-                  target="_blank"
-                >
-                  <i className="fa-brands fa-linkedin-in icon"></i>
-                </a>
-                <a
-                  href={userData.github}
-                  className="preview-icon js-preview-github"
-                  target="_blank"
-                >
-                  <i className="fa-brands fa-github-alt icon"></i>
-                </a>
-              </nav>
-            </article>
+            <CardPreview
+              // userData={userData} - PODRÍAMOS CREAR UN OBJETO USERDATA QUE ENGLOBE TODAS LAS PROPIEDADES (POR SI TENEMOS MUCHAS. EN CARDPREVIEW.JS, "PROPS.PALETE" PASARÍA A SER "PROPS.USERDATA.PALETE")
+              palete={userData.palete}
+              name={userData.name}
+              position={userData.position}
+              phone={userData.phone}
+              email={userData.email}
+              linkedin={userData.linkedin}
+              github={userData.github}
+            ></CardPreview>
           </section>
-
           <form action="" className="section-form js-form">
-            <section>
-              <fieldset className="design form">
-                <legend className="form-legend">
-                  <span className="form-keyboard">
-                    <i className="icon-form fa-solid fa-object-ungroup"></i>
-                  </span>
+            <fieldset className="design form">
+              <legend className="form-legend">
+                <span className="form-keyboard">
+                  <i className="icon-form fa-solid fa-object-ungroup"></i>
+                </span>
 
-                  <span className="form-title--design">Diseña</span>
-                  <div className="js-event">
-                    <i className="form-arrow js-design-down fa-solid fa-wand-sparkles"></i>
-                  </div>
-                </legend>
-                <div className="palette-container js-design">
-                  <div className="colorpalete">
-                    <h2 className="colors">Colores</h2>
+                <span className="form-title--design">Diseña</span>
+                <div className="js-event">
+                  <i className="form-arrow js-design-down fa-solid fa-wand-sparkles"></i>
+                </div>
+              </legend>
+              <div className="palette-container js-design">
+                <div className="colorpalete">
+                  <h2 className="colors">Colores</h2>
 
-                    <input
-                      type="radio"
-                      name="palete"
-                      className="colors1 js-paletteOne radio"
-                      value="1"
-                      id="paymentmethod1"
-                      onChange={handleInput}
-                      checked={userData.palete === '1'}
-                    />
-                    <section className="palete">
-                      <div className="colors1__green"></div>
-                      <div className="colors1__blueD"></div>
-                      <div className="colors1__blueL"></div>
-                    </section>
-                  </div>
-
-                  <div className="colorpalete">
-                    <input
-                      type="radio"
-                      name="palete"
-                      className="colors2 js-paletteTwo radio"
-                      value="2"
-                      id="paymentmethod2"
-                      onChange={handleInput}
-                      checked={userData.palete === '2'}
-                    />
-                    <section className="palete">
-                      <div className="colors2__blood"></div>
-                      <div className="colors2__rusty"></div>
-                      <div className="colors2__tomato"></div>
-                    </section>
-                  </div>
-
-                  <div className="colorpalete">
-                    <input
-                      type="radio"
-                      name="palete"
-                      className="colosr3 js-paletteThree radio"
-                      value="3"
-                      id="paymentmethod3"
-                      onChange={handleInput}
-                      checked={userData.palete === '3'}
-                    />
-                    <section className="palete">
-                      <div className="colors3__slate"></div>
-                      <div className="colors3__orange"></div>
-                      <div className="colors3__greyBlue"></div>
-                    </section>
-                  </div>
+                  <input
+                    type="radio"
+                    name="palete"
+                    className="colors1 js-paletteOne radio"
+                    value="1"
+                    id="paymentmethod1"
+                    onChange={handleInput}
+                    checked={userData.palete === '1'}
+                  />
+                  <section className="palete">
+                    <div className="colors1__green"></div>
+                    <div className="colors1__blueD"></div>
+                    <div className="colors1__blueL"></div>
+                  </section>
                 </div>
 
-                <div className="line"></div>
-              </fieldset>
-
-              <fieldset className="form">
-                <legend className="form-legend">
-                  <span className="form-keyboard">
-                    <i className="icon-form fa-regular fa-keyboard"></i>
-                  </span>
-                  <span className="form-title">Rellena </span>
-                  <div className="js-eventFill">
-                    <i className="form-arrow js-fill-down fa-solid fa-wand-sparkles"></i>
-                  </div>
-                </legend>
-                <div className="form-container transition js-fill">
-                  <p className="form-label">
-                    Los campos con * son obligatorios
-                  </p>
-                  <label className="form-label" htmlFor="name">
-                    Nombre completo*
-                  </label>
-
+                <div className="colorpalete">
                   <input
-                    className="form-input js-input-name"
-                    type="text"
-                    placeholder="Ej: Maricarmen"
-                    id="name"
-                    name="name"
-                    required=""
+                    type="radio"
+                    name="palete"
+                    className="colors2 js-paletteTwo radio"
+                    value="2"
+                    id="paymentmethod2"
                     onChange={handleInput}
-                    value={userData.name}
+                    checked={userData.palete === '2'}
                   />
-
-                  <label className="form-label" htmlFor="position">
-                    Puesto*
-                  </label>
-                  <input
-                    className="form-input js-input-job"
-                    type="text"
-                    placeholder="Ej: Front-end unicorn"
-                    id="position"
-                    name="position"
-                    required=""
-                    onChange={handleInput}
-                    value={userData.position}
-                  />
-
-                  <label className="form-label" htmlFor="">
-                    Imagen de perfil*
-                  </label>
-
-                  <div className="form-add-image">
-                    <label className="form-button" htmlFor="addImage">
-                      Añadir imagen
-                    </label>
-
-                    <input
-                      className="js__profile-upload-btn"
-                      type="file"
-                      id="addImage"
-                      name="addImage"
-                      accept="image/*"
-                      hidden="hidden"
-                      required=""
-                      onChange={handleInput}
-                    />
-                    <div className="form-checkbox js__profile-preview"></div>
-                  </div>
-
-                  <label className="form-label" htmlFor="email">
-                    Email*
-                  </label>
-                  <input
-                    className="form-input js-input-email"
-                    type="email"
-                    placeholder="Ej: maricarmen@gmail.com"
-                    id="email"
-                    name="email"
-                    href=""
-                    required=""
-                    onChange={handleInput}
-                    value={userData.email}
-                  />
-
-                  <label className="form-label" htmlFor="phone">
-                    Teléfono
-                  </label>
-                  <input
-                    className="form-input js-input-phone"
-                    type="tel"
-                    placeholder="Ej:66687879"
-                    id="phone"
-                    name="phone"
-                    pattern="[0-9]{9}"
-                    onChange={handleInput}
-                    value={userData.phone}
-                  />
-
-                  <label className="form-label" htmlFor="linkedin">
-                    LinkedIn*
-                  </label>
-
-                  <input
-                    className="form-input js-input-linkedin"
-                    type="text"
-                    placeholder="Ej: https://www.linkedin.com/in/mari-carmen/"
-                    id="linkedin"
-                    name="linkedin"
-                    required=""
-                    onChange={handleInput}
-                    value={userData.linkedin}
-                  />
-
-                  <label className="form-label" htmlFor="github">
-                    Github*
-                  </label>
-                  <input
-                    className="form-input js-input-github"
-                    type="text"
-                    placeholder="Ej: maricarmen"
-                    id="github"
-                    name="github"
-                    required=""
-                    onChange={handleInput}
-                    value={userData.github}
-                  />
+                  <section className="palete">
+                    <div className="colors2__blood"></div>
+                    <div className="colors2__rusty"></div>
+                    <div className="colors2__tomato"></div>
+                  </section>
                 </div>
-                <div className="line"></div>
-              </fieldset>
 
-              <fieldset className="form">
-                <legend className="form-legend">
-                  <span className="form-nodes">
-                    <i className="icon-form fa-sharp fa-solid fa-share-nodes"></i>
-                  </span>
-                  <span className="form-title--share">Comparte </span>
-                  <div className="js-eventShare">
-                    <i className="js-share-down form-arrow fa-solid fa-wand-sparkles"></i>
-                  </div>
-                </legend>
-                <div className="share-div hidden js-share">
-                  <button
-                    className="create-btn js-create-button"
-                    onClick={handleCreateCard}
+                <div className="colorpalete">
+                  <input
+                    type="radio"
+                    name="palete"
+                    className="colosr3 js-paletteThree radio"
+                    value="3"
+                    id="paymentmethod3"
+                    onChange={handleInput}
+                    checked={userData.palete === '3'}
+                  />
+                  <section className="palete">
+                    <div className="colors3__slate"></div>
+                    <div className="colors3__orange"></div>
+                    <div className="colors3__greyBlue"></div>
+                  </section>
+                </div>
+              </div>
+
+              <div className="line"></div>
+            </fieldset>
+
+            <fieldset className="form">
+              <legend className="form-legend">
+                <span className="form-keyboard">
+                  <i className="icon-form fa-regular fa-keyboard"></i>
+                </span>
+                <span className="form-title">Rellena </span>
+                <div className="js-eventFill">
+                  <i className="form-arrow js-fill-down fa-solid fa-wand-sparkles"></i>
+                </div>
+              </legend>
+              <div className="form-container transition js-fill">
+                <p className="form-label">Los campos con * son obligatorios</p>
+                <label className="form-label" htmlFor="name">
+                  Nombre completo*
+                </label>
+
+                <input
+                  className="form-input js-input-name"
+                  type="text"
+                  placeholder="Ej: Maricarmen"
+                  id="name"
+                  name="name"
+                  required=""
+                  onChange={handleInput}
+                  value={userData.name}
+                />
+
+                <label className="form-label" htmlFor="position">
+                  Puesto*
+                </label>
+                <input
+                  className="form-input js-input-job"
+                  type="text"
+                  placeholder="Ej: Front-end unicorn"
+                  id="position"
+                  name="position"
+                  required=""
+                  onChange={handleInput}
+                  value={userData.position}
+                />
+
+                <label className="form-label" htmlFor="">
+                  Imagen de perfil*
+                </label>
+
+                <div className="form-add-image">
+                  <label className="form-button" htmlFor="addImage">
+                    Añadir imagen
+                  </label>
+
+                  <input
+                    className="js__profile-upload-btn"
+                    type="file"
+                    id="addImage"
+                    name="addImage"
+                    accept="image/*"
+                    hidden="hidden"
+                    required=""
+                    onChange={handleInput}
+                  />
+                  <div className="form-checkbox js__profile-preview"></div>
+                </div>
+
+                <label className="form-label" htmlFor="email">
+                  Email*
+                </label>
+                <input
+                  className="form-input js-input-email"
+                  type="email"
+                  placeholder="Ej: maricarmen@gmail.com"
+                  id="email"
+                  name="email"
+                  href=""
+                  required=""
+                  onChange={handleInput}
+                  value={userData.email}
+                />
+
+                <label className="form-label" htmlFor="phone">
+                  Teléfono
+                </label>
+                <input
+                  className="form-input js-input-phone"
+                  type="tel"
+                  placeholder="Ej:66687879"
+                  id="phone"
+                  name="phone"
+                  pattern="[0-9]{9}"
+                  onChange={handleInput}
+                  value={userData.phone}
+                />
+
+                <label className="form-label" htmlFor="linkedin">
+                  LinkedIn*
+                </label>
+
+                <input
+                  className="form-input js-input-linkedin"
+                  type="text"
+                  placeholder="Ej: https://www.linkedin.com/in/mari-carmen/"
+                  id="linkedin"
+                  name="linkedin"
+                  required=""
+                  onChange={handleInput}
+                  value={userData.linkedin}
+                />
+
+                <label className="form-label" htmlFor="github">
+                  Github*
+                </label>
+                <input
+                  className="form-input js-input-github"
+                  type="text"
+                  placeholder="Ej: maricarmen"
+                  id="github"
+                  name="github"
+                  required=""
+                  onChange={handleInput}
+                  value={userData.github}
+                />
+              </div>
+              <div className="line"></div>
+            </fieldset>
+            <fieldset className="form">
+              <legend className="form-legend">
+                <span className="form-nodes">
+                  <i className="icon-form fa-sharp fa-solid fa-share-nodes"></i>
+                </span>
+                <span className="form-title--share">Comparte </span>
+                <div className="js-eventShare">
+                  <i className="js-share-down form-arrow fa-solid fa-wand-sparkles"></i>
+                </div>
+              </legend>
+              <div className="share-div js-share">
+                {/* Hemos quitado la clase hidden para enseñar botón share */}
+                <button
+                  className="create-btn js-create-button"
+                  onClick={handleCreateCard}
+                >
+                  <i className="fa-solid fa-address-card"></i>Crear tarjeta
+                </button>
+              </div>
+              <div className="line"></div>
+              <div className="card-created-success js-created-success hidden">
+                <div className="card-created js-card-created">
+                  <h3 className="card-created-title js-created-title">
+                    La tarjeta ha sido creada:
+                  </h3>
+                  <p className="card-created-url js-link-share"></p>
+                  {/* CAMBIAR PARRAFO POR UN LINK + AÑADIR LINK API */}
+                </div>
+
+                <div className="share-twitter">
+                  <a
+                    className="share-twitter-tweet js-twitter-button"
+                    href="https://twitter.com/intent/tweet?text=%C2%A1Mira%20la%20m%C3%A1gica%20tarjeta%20que%20he%20creado!!&url=" //FALTA LA URL DE LA API
+                    target="_blank"
                   >
-                    <i className="fa-solid fa-address-card"></i>Crear tarjeta
-                  </button>
+                    <i className="fa-brands fa-twitter twitter-share-button-icon"></i>
+                    Compartir en twitter
+                  </a>
                 </div>
                 <div className="line"></div>
-                <div className="card-created-success js-created-success hidden">
-                  <div className="card-created js-card-created">
-                    <h3 className="card-created-title js-created-title">
-                      La tarjeta ha sido creada:
-                    </h3>
-                    <p className="card-created-url js-link-share"></p>
-                  </div>
-
-                  <div className="share-twitter">
-                    <a
-                      className="share-twitter-tweet js-twitter-button"
-                      href=""
-                      target="_blank"
-                    >
-                      <i className="fa-brands fa-twitter twitter-share-button-icon"></i>
-                      Compartir en twitter
-                    </a>
-                  </div>
-                  <div className="line"></div>
-                </div>
-              </fieldset>
-            </section>
+              </div>
+            </fieldset>
           </form>
         </div>
       </main>
