@@ -121,7 +121,15 @@ function App() {
               palete={userData.palete}
             ></Design>
 
-            <Form></Form>
+            <Form
+            inputFunction={handleInput}
+            name={userData.name}
+            position={userData.position}
+            phone={userData.phone}
+            email={userData.email}
+            linkedin={userData.linkedin}
+            github={userData.github}
+            ></Form>
 
             <fieldset className="form">
               <legend className="form-legend">

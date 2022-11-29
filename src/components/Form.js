@@ -5,7 +5,7 @@ const Form = (props) => {
         <span className="form-keyboard">
           <i className="icon-form fa-regular fa-keyboard"></i>
         </span>
-        <span className="form-title">Rellena </span>
+        <span className="form-title">Rellena</span>
         <div className="js-eventFill">
           <i className="form-arrow js-fill-down fa-solid fa-wand-sparkles"></i>
         </div>
@@ -23,7 +23,7 @@ const Form = (props) => {
           id="name"
           name="name"
           required=""
-          // onChange={handleInput}
+          onChange={props.inputFunction}
           value={props.name}
         />
         <label className="form-label" htmlFor="position">
@@ -36,7 +36,7 @@ const Form = (props) => {
           id="position"
           name="position"
           required=""
-          // onChange={handleInput}
+          onChange={props.inputFunction}
           value={props.position}
         />
 
@@ -57,7 +57,7 @@ const Form = (props) => {
             accept="image/*"
             hidden="hidden"
             required=""
-            // onChange={handleInput}
+            onChange={props.inputFunction}
           />
           <div className="form-checkbox js__profile-preview"></div>
         </div>
@@ -73,7 +73,7 @@ const Form = (props) => {
           name="email"
           href=""
           required=""
-          // onChange={handleInput}
+          onChange={props.inputFunction}
           value={props.email}
         />
 
@@ -87,7 +87,7 @@ const Form = (props) => {
           id="phone"
           name="phone"
           pattern="[0-9]{9}"
-          // onChange={handleInput}
+          onChange={props.inputFunction}
           value={props.phone}
         />
 
@@ -102,7 +102,7 @@ const Form = (props) => {
           id="linkedin"
           name="linkedin"
           required=""
-          // onChange={handleInput}
+          onChange={props.inputFunction}
           value={props.linkedin}
         />
 
@@ -116,7 +116,7 @@ const Form = (props) => {
           id="github"
           name="github"
           required=""
-          // onChange={handleInput}
+          onChange={props.inputFunction}
           value={props.github}
         />
       </div>
