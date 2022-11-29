@@ -26,17 +26,6 @@ const Form = (props) => {
           // onChange={handleInput}
           value={props.name}
         />
-        <input
-          className="form-input js-input-name"
-          type="text"
-          placeholder="Ej: Maricarmen"
-          id="name"
-          name="name"
-          required=""
-          // onChange={handleInput}
-          value={props.name}
-        />
-
         <label className="form-label" htmlFor="position">
           Puesto*
         </label>

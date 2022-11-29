@@ -10,8 +10,7 @@ import CardPreview from './CardPreview';
 import Form from './Form';
 import Header from './Header';
 import Footer from './Footer';
-
-
+import Reset from './Reset';
 
 function App() {
   const [userData, setUserData] = useState({
@@ -53,7 +52,7 @@ function App() {
 
   return (
     <div className="App">
-      <Header image= {alohomoraLogo}></Header>
+      <Header image={alohomoraLogo}></Header>
       <main className="main-background">
         <div className="main-container">
           <section className="mainCreate__card card js-preview">
@@ -103,15 +102,7 @@ function App() {
                 <div className="shadow"></div>
               </div>
             </div>
-            <button
-              className="card__button js-reset-btn"
-              title="Reset"
-              name="Reset"
-              type="button"
-              onClick={handleReset}
-            >
-              <i className="far fa-trash-alt" aria-hidden="true"></i> Reset
-            </button>
+            <Reset resetFunction={handleReset}></Reset>
             <CardPreview
               // userData={userData} - PODRÍAMOS CREAR UN OBJETO USERDATA QUE ENGLOBE TODAS LAS PROPIEDADES (POR SI TENEMOS MUCHAS. EN CARDPREVIEW.JS, "PROPS.PALETE" PASARÍA A SER "PROPS.USERDATA.PALETE")
               palete={userData.palete}
@@ -192,7 +183,7 @@ function App() {
 
               <div className="line"></div>
             </fieldset>
-            
+
             <Form></Form>
 
             <fieldset className="form">
@@ -216,7 +207,7 @@ function App() {
               </div>
               <div className="line"></div>
               <div className="card-created-success js-created-success">
-                 {/* Hemos quitado la clase hidden para enseñar el boton de twitter  y en share.scss, hemos comentado la línea : height: 0, para ver entera la sección;  */}
+                {/* Hemos quitado la clase hidden para enseñar el boton de twitter  y en share.scss, hemos comentado la línea : height: 0, para ver entera la sección;  */}
                 <div className="card-created js-card-created">
                   <h3 className="card-created-title js-created-title">
                     La tarjeta ha sido creada:
