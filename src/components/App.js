@@ -11,6 +11,7 @@ import Form from './Form';
 import Header from './Header';
 import Footer from './Footer';
 import Reset from './Reset';
+import Design from './Design';
 
 function App() {
   const [userData, setUserData] = useState({
@@ -115,74 +116,10 @@ function App() {
             ></CardPreview>
           </section>
           <form action="" className="section-form js-form">
-            <fieldset className="design form">
-              <legend className="form-legend">
-                <span className="form-keyboard">
-                  <i className="icon-form fa-solid fa-object-ungroup"></i>
-                </span>
-
-                <span className="form-title--design">Diseña</span>
-                <div className="js-event">
-                  <i className="form-arrow js-design-down fa-solid fa-wand-sparkles"></i>
-                </div>
-              </legend>
-              <div className="palette-container js-design">
-                <div className="colorpalete">
-                  <h2 className="colors">Colores</h2>
-
-                  <input
-                    type="radio"
-                    name="palete"
-                    className="colors1 js-paletteOne radio"
-                    value="1"
-                    id="paymentmethod1"
-                    onChange={handleInput}
-                    checked={userData.palete === '1'}
-                  />
-                  <section className="palete">
-                    <div className="colors1__green"></div>
-                    <div className="colors1__blueD"></div>
-                    <div className="colors1__blueL"></div>
-                  </section>
-                </div>
-
-                <div className="colorpalete">
-                  <input
-                    type="radio"
-                    name="palete"
-                    className="colors2 js-paletteTwo radio"
-                    value="2"
-                    id="paymentmethod2"
-                    onChange={handleInput}
-                    checked={userData.palete === '2'}
-                  />
-                  <section className="palete">
-                    <div className="colors2__blood"></div>
-                    <div className="colors2__rusty"></div>
-                    <div className="colors2__tomato"></div>
-                  </section>
-                </div>
-
-                <div className="colorpalete">
-                  <input
-                    type="radio"
-                    name="palete"
-                    className="colosr3 js-paletteThree radio"
-                    value="3"
-                    id="paymentmethod3"
-                    onChange={handleInput}
-                    checked={userData.palete === '3'}
-                  />
-                  <section className="palete">
-                    <div className="colors3__slate"></div>
-                    <div className="colors3__orange"></div>
-                    <div className="colors3__greyBlue"></div>
-                  </section>
-                </div>
-              </div>
-
-              <div className="line"></div>
-            </fieldset>
+            <Design
+              inputFunction={handleInput}
+              palete={userData.palete}
+            ></Design>
 
             <Form></Form>
 
