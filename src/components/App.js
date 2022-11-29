@@ -8,6 +8,10 @@ import '../styles/main.scss';
 import Api from '../services/Api';
 import CardPreview from './CardPreview';
 import Form from './Form';
+import Header from './Header';
+import Footer from './Footer';
+
+
 
 function App() {
   const [userData, setUserData] = useState({
@@ -49,11 +53,7 @@ function App() {
 
   return (
     <div className="App">
-      <header className="header">
-        <a href="index.html">
-          <img className="header-image" src={alohomoraLogo} />
-        </a>
-      </header>
+      <Header image= {alohomoraLogo}></Header>
       <main className="main-background">
         <div className="main-container">
           <section className="mainCreate__card card js-preview">
@@ -215,7 +215,8 @@ function App() {
                 </button>
               </div>
               <div className="line"></div>
-              <div className="card-created-success js-created-success hidden">
+              <div className="card-created-success js-created-success">
+                 {/* Hemos quitado la clase hidden para enseñar el boton de twitter  y en share.scss, hemos comentado la línea : height: 0, para ver entera la sección;  */}
                 <div className="card-created js-card-created">
                   <h3 className="card-created-title js-created-title">
                     La tarjeta ha sido creada:
@@ -242,15 +243,7 @@ function App() {
       </main>
 
       <div className="line-footer"></div>
-      <footer className="footer">
-        <small className="footer-copy">Alohomora Cards © 2022 </small>
-        <img
-          className="footer-img"
-          src={adalabLogo}
-          alt="adalab"
-          title="Logo de Adalab"
-        />
-      </footer>
+      <Footer image={adalabLogo}></Footer>
     </div>
   );
 }
