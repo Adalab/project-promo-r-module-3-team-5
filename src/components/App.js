@@ -17,15 +17,17 @@ import Snitch from './Snitch';
 
 function App() {
   const [userData, setUserData] = useState({
-    palete: '1',
-    name: '',
-    position: '',
-    // addImage: '',
-    email: '',
-    phone: '',
-    linkedin: '',
-    github: '',
+    palette: "1",
+    name: "",
+    job: "",
+    photo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/24/Stray_calico_cat_near_Sagami_River-01.jpg/640px-Stray_calico_cat_near_Sagami_River-01.jpg',
+    email: "",
+    phone: "",
+    linkedin: "",
+    github: "",
   });
+  //Nueva variable estado para guardar dataResult
+  const [dataResult, setDataResult] = useState({});
 
   const handleInput = (ev) => {
     const inputValue = ev.target.value;
@@ -35,13 +37,14 @@ function App() {
 
   const handleReset = (ev) => {
     setUserData({
-      name: '',
-      palete: '1',
-      position: '',
-      email: '',
-      phone: '',
-      linkedin: '',
-      github: '',
+      name: "",
+      palette: "1",
+      job: "",
+      photo: "",
+      email: "",
+      phone: "",
+      linkedin: "",
+      github: "",
     });
   };
 
@@ -49,7 +52,8 @@ function App() {
   const handleCreateCard = (ev) => {
     ev.preventDefault();
     Api(userData).then((data) => {
-      console.log(data); // La respuesta del servidor. Necesitamos guardarla en una variable estado para luego pintarla html.
+      setDataResult(data);
+       // La respuesta del servidor. Necesitamos guardarla en una variable estado para luego pintarla html.
     });
   };
 
@@ -63,9 +67,9 @@ function App() {
             <Reset resetFunction={handleReset}></Reset>
             <CardPreview
               // userData={userData} - PODRÍAMOS CREAR UN OBJETO USERDATA QUE ENGLOBE TODAS LAS PROPIEDADES (POR SI TENEMOS MUCHAS. EN CARDPREVIEW.JS, "PROPS.PALETE" PASARÍA A SER "PROPS.USERDATA.PALETE")
-              palete={userData.palete}
+              palette={userData.palette}
               name={userData.name}
-              position={userData.position}
+              job={userData.job}
               phone={userData.phone}
               email={userData.email}
               linkedin={userData.linkedin}
@@ -75,7 +79,7 @@ function App() {
           <form action="" className="section-form js-form">
             <Design
               inputFunction={handleInput}
-              palete={userData.palete}
+              palette={userData.palette}
             ></Design>
 
             <Form
@@ -88,7 +92,10 @@ function App() {
               github={userData.github}
             ></Form>
 
-            <Share handleCreateCard={handleCreateCard}></Share>
+            <Share 
+            handleCreateCard={handleCreateCard}
+            dataResult = {dataResult}
+            ></Share>
           </form>
         </div>
       </main>

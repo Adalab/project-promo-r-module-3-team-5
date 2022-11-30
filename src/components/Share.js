@@ -26,14 +26,16 @@ const Share = (props) => {
           <h3 className="card-created-title js-created-title">
             La tarjeta ha sido creada:
           </h3>
-          <p className="card-created-url js-link-share"></p>
+          <p className="card-created-url js-link-share">
+            <a target="_blank" href={props.dataResult.cardURL}>{props.dataResult.success ? props.dataResult.cardURL : props.dataResult.error}</a>
+          </p>
           {/* CAMBIAR PARRAFO POR UN LINK + AÑADIR LINK API */}
         </div>
 
         <div className="share-twitter">
           <a
             className="share-twitter-tweet js-twitter-button"
-            href="https://twitter.com/intent/tweet?text=%C2%A1Mira%20la%20m%C3%A1gica%20tarjeta%20que%20he%20creado!!&url=" //FALTA LA URL DE LA API
+            href={`https://twitter.com/intent/tweet?text=%C2%A1Mira%20la%20m%C3%A1gica%20tarjeta%20que%20he%20creado!!&url=${props.dataResult.cardURL}`} //FALTA LA URL DE LA API
             target="_blank"
             rel="noreferrer"
           >

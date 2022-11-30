@@ -17,12 +17,12 @@ const Design = (props) => {
 
           <input
             type="radio"
-            name="palete"
+            name="palette"
             className="colors1 js-paletteOne radio"
             value="1"
             id="paymentmethod1"
             onChange={props.inputFunction}
-            checked={props.palete === '1'}
+            checked={props.palette === '1'}
           />
           <section className="palete">
             <div className="colors1__green"></div>
@@ -34,12 +34,12 @@ const Design = (props) => {
         <div className="colorpalete">
           <input
             type="radio"
-            name="palete"
+            name="palette"
             className="colors2 js-paletteTwo radio"
             value="2"
             id="paymentmethod2"
             onChange={props.inputFunction}
-            checked={props.palete === '2'}
+            checked={props.palette === '2'}
           />
           <section className="palete">
             <div className="colors2__blood"></div>
@@ -51,12 +51,12 @@ const Design = (props) => {
         <div className="colorpalete">
           <input
             type="radio"
-            name="palete"
+            name="palette"
             className="colosr3 js-paletteThree radio"
             value="3"
             id="paymentmethod3"
             onChange={props.inputFunction}
-            checked={props.palete === '3'}
+            checked={props.palette === '3'}
           />
           <section className="palete">
             <div className="colors3__slate"></div>
