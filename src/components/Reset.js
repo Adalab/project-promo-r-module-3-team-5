@@ -1,4 +1,7 @@
 const Reset = (props) => {
+  const handleDraft = (ev) => {
+    props.handleReset();
+  };
   return (
     <>
       <button
@@ -6,7 +9,7 @@ const Reset = (props) => {
         title="Reset"
         name="Reset"
         type="button"
-        onClick={props.handleReset}
+        onClick={handleDraft}
       >
         <i className="far fa-trash-alt" aria-hidden="true"></i> Reset
       </button>
