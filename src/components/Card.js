@@ -38,7 +38,7 @@ const Card = (props) => {
             // handleShowCollapsable={handleShowCollapsable}
             collapsable={props.collapsable}
             name={props.userData.name}
-            position={props.userData.position}
+            job={props.userData.job}
             phone={props.userData.phone}
             email={props.userData.email}
             linkedin={props.userData.linkedin}
