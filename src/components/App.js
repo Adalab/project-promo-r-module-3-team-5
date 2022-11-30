@@ -1,29 +1,30 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 /* eslint-disable react/jsx-no-target-blank */
 /* eslint-disable jsx-a11y/alt-text */
-import { useState } from "react";
-import alohomoraLogo from "../images/card.png";
-import adalabLogo from "../images/adalab.png";
-import "../styles/main.scss";
-import Api from "../services/Api";
-import CardPreview from "./CardPreview";
-import Form from "./Form";
-import Header from "./Header";
-import Footer from "./Footer";
-import Reset from "./Reset";
-import Design from "./Design";
-import Share from "./Share";
+import { useState } from 'react';
+import alohomoraLogo from '../images/card.png';
+import adalabLogo from '../images/adalab.png';
+import '../styles/main.scss';
+import Api from '../services/Api';
+import CardPreview from './CardPreview';
+import Form from './Form';
+import Header from './Header';
+import Footer from './Footer';
+import Reset from './Reset';
+import Design from './Design';
+import Share from './Share';
+import Snitch from './Snitch';
 
 function App() {
   const [userData, setUserData] = useState({
-    palete: "1",
-    name: "",
-    position: "",
+    palete: '1',
+    name: '',
+    position: '',
     // addImage: '',
-    email: "",
-    phone: "",
-    linkedin: "",
-    github: "",
+    email: '',
+    phone: '',
+    linkedin: '',
+    github: '',
   });
 
   const handleInput = (ev) => {
@@ -34,13 +35,13 @@ function App() {
 
   const handleReset = (ev) => {
     setUserData({
-      name: "",
-      palete: "1",
-      position: "",
-      email: "",
-      phone: "",
-      linkedin: "",
-      github: "",
+      name: '',
+      palete: '1',
+      position: '',
+      email: '',
+      phone: '',
+      linkedin: '',
+      github: '',
     });
   };
 
@@ -58,52 +59,7 @@ function App() {
       <main className="main-background">
         <div className="main-container">
           <section className="mainCreate__card card js-preview">
-            <div className="snitch-container" id="container">
-              <div id="the-div">
-                {/* <!--Inspiration https://dribbble.com/shots/4155133-Snitch-Animation -->
-              <!--and https://dribbble.com/shots/2493071-Wizarding-World-Icons --> */}
-                <input
-                  type="checkbox"
-                  name="checkbox"
-                  id="animate"
-                  hidden="hidden"
-                />
-                <label htmlFor="animate">
-                  <div className="snitch js-snitch">
-                    <div className="obj">
-                      <div className="body">
-                        <div className="flourish"></div>
-                        <div className="flourish"></div>
-                        <div className="flourish"></div>
-                        <div className="flourish">
-                          <div className="line"></div>
-                          <div className="line"></div>
-                          <div className="line"></div>
-                        </div>
-                        <div className="flourish">
-                          <div className="line"></div>
-                          <div className="line"></div>
-                          <div className="line"></div>
-                        </div>
-                      </div>
-                      <div className="l joint"></div>
-                      <div className="l wing">
-                        <div className="feather"></div>
-                        <div className="feather"></div>
-                        <div className="feather"></div>
-                      </div>
-                      <div className="r joint"></div>
-                      <div className="r wing">
-                        <div className="feather"></div>
-                        <div className="feather"></div>
-                        <div className="feather"></div>
-                      </div>
-                    </div>
-                  </div>
-                </label>
-                <div className="shadow"></div>
-              </div>
-            </div>
+            <Snitch></Snitch>
             <Reset resetFunction={handleReset}></Reset>
             <CardPreview
               // userData={userData} - PODRÍAMOS CREAR UN OBJETO USERDATA QUE ENGLOBE TODAS LAS PROPIEDADES (POR SI TENEMOS MUCHAS. EN CARDPREVIEW.JS, "PROPS.PALETE" PASARÍA A SER "PROPS.USERDATA.PALETE")
