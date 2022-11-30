@@ -26,18 +26,18 @@ const Form = (props) => {
           onChange={props.inputFunction}
           value={props.name}
         />
-        <label className="form-label" htmlFor="position">
+        <label className="form-label" htmlFor="job">
           Puesto*
         </label>
         <input
           className="form-input js-input-job"
           type="text"
           placeholder="Ej: Front-end unicorn"
-          id="position"
-          name="position"
+          id="job"
+          name="job"
           required=""
           onChange={props.inputFunction}
-          value={props.position}
+          value={props.job}
         />
 
         <label className="form-label" htmlFor="">
@@ -45,15 +45,15 @@ const Form = (props) => {
         </label>
 
         <div className="form-add-image">
-          <label className="form-button" htmlFor="addImage">
+          <label className="form-button" htmlFor="photo">
             Añadir imagen
           </label>
 
           <input
             className="js__profile-upload-btn"
             type="file"
-            id="addImage"
-            name="addImage"
+            id="photo"
+            name="photo"
             accept="image/*"
             hidden="hidden"
             required=""

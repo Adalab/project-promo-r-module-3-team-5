@@ -26,7 +26,9 @@ const Share = (props) => {
           <h3 className="card-created-title js-created-title">
             La tarjeta ha sido creada:
           </h3>
-          <p className="card-created-url js-link-share"></p>
+          <p className="card-created-url js-link-share">
+            <a target="_blank" href={props.dataResult.cardURL}>{props.dataResult.success ? props.dataResult.cardURL : props.dataResult.error}</a>
+          </p>
           {/* CAMBIAR PARRAFO POR UN LINK + AÑADIR LINK API */}
         </div>
 
