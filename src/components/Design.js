@@ -1,17 +1,20 @@
 const Design = (props) => {
   return (
     <fieldset className="design form" name="clicked">
-      <legend className="form-legend" onClick={props.handleShowCollapsable}>
+      <legend className="form-legend">
         <span className="form-keyboard">
           <i className="icon-form fa-solid fa-object-ungroup"></i>
         </span>
 
         <span className="form-title--design">Diseña</span>
         <div className="js-event">
-          <i className="form-arrow js-design-down fa-solid fa-wand-sparkles"></i>
+          <i className="form-arrow js-design-down fa-solid fa-wand-sparkles"
+          onClick={props.handleDesign}></i>
         </div>
       </legend>
-      <div className="palette-container js-design">
+
+      {props.collapsable === 'Design' ? (
+      <div className="palette-container js-design ">
         <div className="colorpalete">
           <h2 className="colors">Colores</h2>
 
@@ -65,7 +68,7 @@ const Design = (props) => {
           </section>
         </div>
       </div>
-
+       ) : null}
       <div className="line"></div>
     </fieldset>
   );

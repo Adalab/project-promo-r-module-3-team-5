@@ -1,16 +1,19 @@
 const Form = (props) => {
   return (
     <fieldset className="form">
-      <legend className="form-legend" onClick={props.handleShowCollapsable}>
+      <legend className="form-legend">
         <span className="form-keyboard">
           <i className="icon-form fa-regular fa-keyboard"></i>
         </span>
         <span className="form-title">Rellena</span>
         <div className="js-eventFill">
-          <i className="form-arrow js-fill-down fa-solid fa-wand-sparkles"></i>
+          <i className="form-arrow js-fill-down fa-solid fa-wand-sparkles"onClick={props.handleForm}></i>
+          {/* Se lo añado a la varita */}
         </div>
       </legend>
-      <div className="form-container transition js-fill hidden">
+
+      {props.collapsable === 'Form' ? (
+      <div className="form-container transition js-fill ">
         <p className="form-label">Los campos con * son obligatorios</p>
         <label className="form-label" htmlFor="name">
           Nombre completo*
@@ -120,6 +123,7 @@ const Form = (props) => {
           value={props.github}
         />
       </div>
+      ) : null}
       <div className="line"></div>
     </fieldset>
   );

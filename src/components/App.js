@@ -31,14 +31,20 @@ function App() {
   //Nueva variable estado para guardar dataResult
   const [dataResult, setDataResult] = useState(undefined);
 
-  const [collapsable, setCollapsable] = useState({
-    name: 'clicked',
-  });
+  const [collapsable, setCollapsable] = useState('Design');
 
-  const handleShowCollapsable = (ev) => {
-    ev.preventDefault();
-    setCollapsable();
+  // hago click en form y las demas que ocultarse. Cambiamos su variable estado.
+  const handleForm = () => {
+    setCollapsable('Form');
   };
+  
+  const handleDesign= () => {
+    setCollapsable('Design');
+  };
+
+  const handleShare =()=>{
+    setCollapsable('Share');
+  }
 
   const handleInput = (ev) => {
     const inputValue = ev.target.value;
@@ -92,13 +98,17 @@ function App() {
           <form action="" className="section-form js-form">
             <Design
               handleInput={handleInput}
-              handleShowCollapsable={handleShowCollapsable}
+              // handleShowCollapsable={handleShowCollapsable}
+              collapsable= {collapsable}
+              handleDesign = {handleDesign}
               palette={userData.palette}
             ></Design>
 
             <Form
               handleInput={handleInput}
-              handleShowCollapsable={handleShowCollapsable}
+              // handleShowCollapsable={handleShowCollapsable}
+              handleForm={handleForm}
+              collapsable= {collapsable}
               name={userData.name}
               position={userData.position}
               phone={userData.phone}
@@ -109,6 +119,8 @@ function App() {
 
             <Share
               handleCreateCard={handleCreateCard}
+              collapsable= {collapsable}
+              handleShare = {handleShare}
               dataResult={dataResult}
             ></Share>
           </form>
