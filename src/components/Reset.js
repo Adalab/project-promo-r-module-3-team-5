@@ -6,7 +6,7 @@ const Reset = (props) => {
         title="Reset"
         name="Reset"
         type="button"
-        onClick={props.resetFunction}
+        onClick={props.handleReset}
       >
         <i className="far fa-trash-alt" aria-hidden="true"></i> Reset
       </button>

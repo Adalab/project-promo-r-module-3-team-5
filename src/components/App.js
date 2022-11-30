@@ -1,33 +1,43 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 /* eslint-disable react/jsx-no-target-blank */
 /* eslint-disable jsx-a11y/alt-text */
-import { useState } from 'react';
-import alohomoraLogo from '../images/card.png';
-import adalabLogo from '../images/adalab.png';
-import '../styles/main.scss';
-import Api from '../services/Api';
-import CardPreview from './CardPreview';
-import Form from './Form';
-import Header from './Header';
-import Footer from './Footer';
-import Reset from './Reset';
-import Design from './Design';
-import Share from './Share';
-import Snitch from './Snitch';
+import { useState } from "react";
+import alohomoraLogo from "../images/card.png";
+import adalabLogo from "../images/adalab.png";
+import "../styles/main.scss";
+import Api from "../services/Api";
+import CardPreview from "./CardPreview";
+import Form from "./Form";
+import Header from "./Header";
+import Footer from "./Footer";
+import Reset from "./Reset";
+import Design from "./Design";
+import Share from "./Share";
+import Snitch from "./Snitch";
 
 function App() {
   const [userData, setUserData] = useState({
     palette: "1",
     name: "",
     job: "",
-    photo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/24/Stray_calico_cat_near_Sagami_River-01.jpg/640px-Stray_calico_cat_near_Sagami_River-01.jpg',
+    photo:
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/2/24/Stray_calico_cat_near_Sagami_River-01.jpg/640px-Stray_calico_cat_near_Sagami_River-01.jpg",
     email: "",
     phone: "",
     linkedin: "",
     github: "",
   });
   //Nueva variable estado para guardar dataResult
-  const [dataResult, setDataResult] = useState({});
+  const [dataResult, setDataResult] = useState(undefined);
+
+  const [collapsable, setCollapsable] = useState({
+    name: "clicked",
+  });
+
+  const handleShowCollapsable = (ev) => {
+    ev.preventDefault();
+    setCollapsable();
+  };
 
   const handleInput = (ev) => {
     const inputValue = ev.target.value;
@@ -53,7 +63,7 @@ function App() {
     ev.preventDefault();
     Api(userData).then((data) => {
       setDataResult(data);
-       // La respuesta del servidor. Necesitamos guardarla en una variable estado para luego pintarla html.
+      // La respuesta del servidor. Necesitamos guardarla en una variable estado para luego pintarla html.
     });
   };
 
@@ -64,7 +74,7 @@ function App() {
         <div className="main-container">
           <section className="mainCreate__card card js-preview">
             <Snitch></Snitch>
-            <Reset resetFunction={handleReset}></Reset>
+            <Reset handleReset={handleReset}></Reset>
             <CardPreview
               // userData={userData} - PODRÍAMOS CREAR UN OBJETO USERDATA QUE ENGLOBE TODAS LAS PROPIEDADES (POR SI TENEMOS MUCHAS. EN CARDPREVIEW.JS, "PROPS.PALETE" PASARÍA A SER "PROPS.USERDATA.PALETE")
               palette={userData.palette}
@@ -78,12 +88,14 @@ function App() {
           </section>
           <form action="" className="section-form js-form">
             <Design
-              inputFunction={handleInput}
+              handleInput={handleInput}
+              handleShowCollapsable={handleShowCollapsable}
               palette={userData.palette}
             ></Design>
 
             <Form
-              inputFunction={handleInput}
+              handleInput={handleInput}
+              handleShowCollapsable={handleShowCollapsable}
               name={userData.name}
               position={userData.position}
               phone={userData.phone}
@@ -92,9 +104,9 @@ function App() {
               github={userData.github}
             ></Form>
 
-            <Share 
-            handleCreateCard={handleCreateCard}
-            dataResult = {dataResult}
+            <Share
+              handleCreateCard={handleCreateCard}
+              dataResult={dataResult}
             ></Share>
           </form>
         </div>

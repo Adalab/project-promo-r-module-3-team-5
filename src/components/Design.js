@@ -1,7 +1,7 @@
 const Design = (props) => {
   return (
-    <fieldset className="design form">
-      <legend className="form-legend">
+    <fieldset className="design form" name="clicked">
+      <legend className="form-legend" onClick={props.handleShowCollapsable}>
         <span className="form-keyboard">
           <i className="icon-form fa-solid fa-object-ungroup"></i>
         </span>
@@ -21,8 +21,8 @@ const Design = (props) => {
             className="colors1 js-paletteOne radio"
             value="1"
             id="paymentmethod1"
-            onChange={props.inputFunction}
-            checked={props.palette === '1'}
+            onChange={props.handleInput}
+            checked={props.palette === "1"}
           />
           <section className="palete">
             <div className="colors1__green"></div>
@@ -38,8 +38,8 @@ const Design = (props) => {
             className="colors2 js-paletteTwo radio"
             value="2"
             id="paymentmethod2"
-            onChange={props.inputFunction}
-            checked={props.palette === '2'}
+            onChange={props.handleInput}
+            checked={props.palette === "2"}
           />
           <section className="palete">
             <div className="colors2__blood"></div>
@@ -55,8 +55,8 @@ const Design = (props) => {
             className="colosr3 js-paletteThree radio"
             value="3"
             id="paymentmethod3"
-            onChange={props.inputFunction}
-            checked={props.palette === '3'}
+            onChange={props.handleInput}
+            checked={props.palette === "3"}
           />
           <section className="palete">
             <div className="colors3__slate"></div>

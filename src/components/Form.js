@@ -1,7 +1,7 @@
 const Form = (props) => {
   return (
     <fieldset className="form">
-      <legend className="form-legend">
+      <legend className="form-legend" onClick={props.handleShowCollapsable}>
         <span className="form-keyboard">
           <i className="icon-form fa-regular fa-keyboard"></i>
         </span>
@@ -10,7 +10,7 @@ const Form = (props) => {
           <i className="form-arrow js-fill-down fa-solid fa-wand-sparkles"></i>
         </div>
       </legend>
-      <div className="form-container transition js-fill">
+      <div className="form-container transition js-fill hidden">
         <p className="form-label">Los campos con * son obligatorios</p>
         <label className="form-label" htmlFor="name">
           Nombre completo*
@@ -23,7 +23,7 @@ const Form = (props) => {
           id="name"
           name="name"
           required=""
-          onChange={props.inputFunction}
+          onChange={props.handleInput}
           value={props.name}
         />
         <label className="form-label" htmlFor="job">
@@ -36,7 +36,7 @@ const Form = (props) => {
           id="job"
           name="job"
           required=""
-          onChange={props.inputFunction}
+          onChange={props.handleInput}
           value={props.job}
         />
 
@@ -57,7 +57,7 @@ const Form = (props) => {
             accept="image/*"
             hidden="hidden"
             required=""
-            onChange={props.inputFunction}
+            onChange={props.handleInput}
           />
           <div className="form-checkbox js__profile-preview"></div>
         </div>
@@ -73,7 +73,7 @@ const Form = (props) => {
           name="email"
           href=""
           required=""
-          onChange={props.inputFunction}
+          onChange={props.handleInput}
           value={props.email}
         />
 
@@ -87,7 +87,7 @@ const Form = (props) => {
           id="phone"
           name="phone"
           pattern="[0-9]{9}"
-          onChange={props.inputFunction}
+          onChange={props.handleInput}
           value={props.phone}
         />
 
@@ -102,7 +102,7 @@ const Form = (props) => {
           id="linkedin"
           name="linkedin"
           required=""
-          onChange={props.inputFunction}
+          onChange={props.handleInput}
           value={props.linkedin}
         />
 
@@ -116,7 +116,7 @@ const Form = (props) => {
           id="github"
           name="github"
           required=""
-          onChange={props.inputFunction}
+          onChange={props.handleInput}
           value={props.github}
         />
       </div>
