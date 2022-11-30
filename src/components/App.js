@@ -18,7 +18,6 @@ function App() {
   const [userData, setUserData] = useState({
     palette: "1",
     name: "",
-    // position: "",
     job: "",
     photo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/24/Stray_calico_cat_near_Sagami_River-01.jpg/640px-Stray_calico_cat_near_Sagami_River-01.jpg',
     email: "",
@@ -39,8 +38,8 @@ function App() {
     setUserData({
       name: "",
       palette: "1",
-      // position: "",
       job: "",
+      photo: "",
       email: "",
       phone: "",
       linkedin: "",
@@ -52,9 +51,7 @@ function App() {
   const handleCreateCard = (ev) => {
     ev.preventDefault();
     Api(userData).then((data) => {
-      // console.log(data);
       setDataResult(data);
-      console.log(dataResult);
        // La respuesta del servidor. Necesitamos guardarla en una variable estado para luego pintarla html.
     });
   };

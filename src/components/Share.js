@@ -35,7 +35,7 @@ const Share = (props) => {
         <div className="share-twitter">
           <a
             className="share-twitter-tweet js-twitter-button"
-            href="https://twitter.com/intent/tweet?text=%C2%A1Mira%20la%20m%C3%A1gica%20tarjeta%20que%20he%20creado!!&url=" //FALTA LA URL DE LA API
+            href={`https://twitter.com/intent/tweet?text=%C2%A1Mira%20la%20m%C3%A1gica%20tarjeta%20que%20he%20creado!!&url=${props.dataResult.cardURL}`} //FALTA LA URL DE LA API
             target="_blank"
             rel="noreferrer"
           >
