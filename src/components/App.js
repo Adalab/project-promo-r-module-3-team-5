@@ -1,37 +1,38 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 /* eslint-disable react/jsx-no-target-blank */
 /* eslint-disable jsx-a11y/alt-text */
-import { useState } from "react";
-import alohomoraLogo from "../images/card.png";
-import adalabLogo from "../images/adalab.png";
-import "../styles/main.scss";
-import Api from "../services/Api";
-import CardPreview from "./CardPreview";
-import Form from "./Form";
-import Header from "./Header";
-import Footer from "./Footer";
-import Reset from "./Reset";
-import Design from "./Design";
-import Share from "./Share";
-import Snitch from "./Snitch";
+import { useState } from 'react';
+import alohomoraLogo from '../images/card.png';
+import adalabLogo from '../images/adalab.png';
+import '../styles/main.scss';
+import Api from '../services/Api';
+import CardPreview from './CardPreview';
+import Form from './Form';
+import Header from './Header';
+import Footer from './Footer';
+import Reset from './Reset';
+import Design from './Design';
+import Share from './Share';
+import Snitch from './Snitch';
+import Landing from './Landing';
 
 function App() {
   const [userData, setUserData] = useState({
-    palette: "1",
-    name: "",
-    job: "",
+    palette: '1',
+    name: '',
+    job: '',
     photo:
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/2/24/Stray_calico_cat_near_Sagami_River-01.jpg/640px-Stray_calico_cat_near_Sagami_River-01.jpg",
-    email: "",
-    phone: "",
-    linkedin: "",
-    github: "",
+      'https://upload.wikimedia.org/wikipedia/commons/thumb/2/24/Stray_calico_cat_near_Sagami_River-01.jpg/640px-Stray_calico_cat_near_Sagami_River-01.jpg',
+    email: '',
+    phone: '',
+    linkedin: '',
+    github: '',
   });
   //Nueva variable estado para guardar dataResult
   const [dataResult, setDataResult] = useState(undefined);
 
   const [collapsable, setCollapsable] = useState({
-    name: "clicked",
+    name: 'clicked',
   });
 
   const handleShowCollapsable = (ev) => {
@@ -47,14 +48,14 @@ function App() {
 
   const handleReset = (ev) => {
     setUserData({
-      name: "",
-      palette: "1",
-      job: "",
-      photo: "",
-      email: "",
-      phone: "",
-      linkedin: "",
-      github: "",
+      name: '',
+      palette: '1',
+      job: '',
+      photo: '',
+      email: '',
+      phone: '',
+      linkedin: '',
+      github: '',
     });
   };
 
@@ -70,6 +71,8 @@ function App() {
   return (
     <div className="App">
       <Header image={alohomoraLogo}></Header>
+      <Landing alohomoraLogo={alohomoraLogo}></Landing>
+
       <main className="main-background">
         <div className="main-container">
           <section className="mainCreate__card card js-preview">
