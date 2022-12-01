@@ -25,10 +25,11 @@ function App() {
   });
   //Nueva variable estado para guardar dataResult
   const [dataResult, setDataResult] = useState(undefined);
-
+  //Variable estado para los collapsables
   const [collapsable, setCollapsable] = useState("Design");
 
-  // hago click en form y las demas que ocultarse. Cambiamos su variable estado.
+
+  // hago click en form y las demas tienen que ocultarse. Cambiamos su variable estado.
   const handleForm = () => {
     setCollapsable("Form");
   };
@@ -62,7 +63,7 @@ function App() {
     });
   };
 
-  //TERMINAR EL FETCH (FALTA URL + CREAR VARIABLE ESTADO )
+
   const handleCreateCard = () => {
     Api(userData).then((data) => {
       setDataResult(data);

@@ -12,15 +12,16 @@ const Share = (props) => {
         <span className="form-title--share">Comparte </span>
         <div className="js-eventShare">
           <i
-            className="js-share-down form-arrow fa-solid fa-wand-sparkles"
+            className={`js-share-down form-arrow fa-solid fa-wand-sparkles ${props.collapsable === "Share" ? ('rotate'): null} `}
             onClick={props.handleShare}
           ></i>
         </div>
       </legend>
-
+  
       {props.collapsable === "Share" ? (
+      <>
         <div className="share-div js-share">
-          {/* AÑADIMOS CLASE HIDDEN PARA COLAPSABLES*/}
+          {/* QUITAMOS LA CLASE HIDDEN PARA VER LA SECCIÓN*/}
           <button
             className="create-btn js-create-button"
             onClick={handleCreateButton}
@@ -28,7 +29,6 @@ const Share = (props) => {
             <i className="fa-solid fa-address-card"></i>Crear tarjeta
           </button>
         </div>
-      ) : null}
       <div className="line"></div>
       {props.dataResult !== undefined ? (
         <div className="card-created-success js-created-success">
@@ -62,6 +62,8 @@ const Share = (props) => {
           </div>
           <div className="line"></div>
         </div>
+      ) : null}
+      </>
       ) : null}
     </fieldset>
   );

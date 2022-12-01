@@ -11,7 +11,7 @@ const Form = (props) => {
         <span className="form-title">Rellena</span>
         <div className="js-eventFill">
           <i
-            className="form-arrow js-fill-down fa-solid fa-wand-sparkles"
+            className={`form-arrow js-fill-down fa-solid fa-wand-sparkles ${props.collapsable === "Form" ? ('rotate'): null} `}
             onClick={props.handleForm}
           ></i>
           {/* Se lo añado a la varita */}

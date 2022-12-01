@@ -27,15 +27,14 @@ const Card = (props) => {
           <Design
             handleInput={props.handleInput}
             handleDesign={props.handleDesign}
-            // handleShowCollapsable={handleShowCollapsable}
             collapsable={props.collapsable}
             palette={props.userData.palette}
+            rotateWand={props.rotateWand}
           ></Design>
 
           <Form
             handleInput={props.handleInput}
             handleForm={props.handleForm}
-            // handleShowCollapsable={handleShowCollapsable}
             collapsable={props.collapsable}
             name={props.userData.name}
             job={props.userData.job}
