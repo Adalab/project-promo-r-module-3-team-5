@@ -11,7 +11,9 @@ const Form = (props) => {
         <span className="form-title">Rellena</span>
         <div className="js-eventFill">
           <i
-            className={`form-arrow js-fill-down fa-solid fa-wand-sparkles ${props.collapsable === "Form" ? ('rotate'): null} `}
+            className={`form-arrow js-fill-down fa-solid fa-wand-sparkles ${
+              props.collapsable === "Form" ? "rotate" : null
+            } `}
             onClick={props.handleForm}
           ></i>
           {/* Se lo añado a la varita */}
@@ -111,7 +113,7 @@ const Form = (props) => {
           <input
             className="form-input js-input-linkedin"
             type="text"
-            placeholder="Ej: https://www.linkedin.com/in/mari-carmen/"
+            placeholder="Ej: maricarmen"
             id="linkedin"
             name="linkedin"
             required=""
