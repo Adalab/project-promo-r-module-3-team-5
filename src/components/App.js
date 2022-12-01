@@ -63,8 +63,7 @@ function App() {
   };
 
   //TERMINAR EL FETCH (FALTA URL + CREAR VARIABLE ESTADO )
-  const handleCreateCard = (ev) => {
-    ev.preventDefault();
+  const handleCreateCard = () => {
     Api(userData).then((data) => {
       setDataResult(data);
       // La respuesta del servidor. Necesitamos guardarla en una variable estado para luego pintarla html.

@@ -54,7 +54,11 @@ const Form = (props) => {
           </label>
 
           <div className="form-add-image">
-            <label className="form-button" htmlFor="photo">
+            {/* <GetAvatar
+          //Mirar en el App del proyecto
+          ></GetAvatar> */}
+
+            {/* <label className="form-button" htmlFor="photo">
               Añadir imagen
             </label>
 
@@ -68,7 +72,7 @@ const Form = (props) => {
               required=""
               onChange={handleChange}
             />
-            <div className="form-checkbox js__profile-preview"></div>
+            <div className="form-checkbox js__profile-preview"></div> */}
           </div>
 
           <label className="form-label" htmlFor="email">

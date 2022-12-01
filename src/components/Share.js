@@ -1,8 +1,8 @@
 const Share = (props) => {
-  // const handleCreateButton = (ev) => {
-  //   ev.preventDefault();
-  //   props.handleCreateCard();
-  // };
+  const handleCreateButton = (ev) => {
+    ev.preventDefault();
+    props.handleCreateCard();
+  };
   return (
     <fieldset className="form">
       <legend className="form-legend">
@@ -23,7 +23,7 @@ const Share = (props) => {
           {/* AÑADIMOS CLASE HIDDEN PARA COLAPSABLES*/}
           <button
             className="create-btn js-create-button"
-            onClick={props.handleCreateCard}
+            onClick={handleCreateButton}
           >
             <i className="fa-solid fa-address-card"></i>Crear tarjeta
           </button>
