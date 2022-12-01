@@ -7,22 +7,24 @@ const Share = (props) => {
         </span>
         <span className="form-title--share">Comparte </span>
         <div className="js-eventShare">
-          <i className="js-share-down form-arrow fa-solid fa-wand-sparkles"
-          onClick={props.handleShare}></i>
+          <i
+            className="js-share-down form-arrow fa-solid fa-wand-sparkles"
+            onClick={props.handleShare}
+          ></i>
         </div>
       </legend>
 
       {props.collapsable === 'Share' ? (
-      <div className="share-div js-share">
-        {/* AÑADIMOS CLASE HIDDEN PARA COLAPSABLES*/}
-        <button
-          className="create-btn js-create-button"
-          onClick={props.handleCreateCard}
-        >
-          <i className="fa-solid fa-address-card"></i>Crear tarjeta
-        </button>
-      </div>
-       ) : null} 
+        <div className="share-div js-share">
+          {/* AÑADIMOS CLASE HIDDEN PARA COLAPSABLES*/}
+          <button
+            className="create-btn js-create-button"
+            onClick={props.handleCreateCard}
+          >
+            <i className="fa-solid fa-address-card"></i>Crear tarjeta
+          </button>
+        </div>
+      ) : null}
       <div className="line"></div>
       {props.dataResult !== undefined ? (
         <div className="card-created-success js-created-success">
@@ -39,7 +41,7 @@ const Share = (props) => {
             >
               {props.dataResult.success
                 ? props.dataResult.cardURL
-                : "Debes rellenar todos los campos"}
+                : 'Debes rellenar todos los campos'}
             </a>
           </div>
 
@@ -58,7 +60,6 @@ const Share = (props) => {
         </div>
       ) : null}
     </fieldset>
-    
   );
 };
 
