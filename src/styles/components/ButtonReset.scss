@@ -1,0 +1,19 @@
+@import '../core/variables';
+
+.card__button {
+    background-color: $reset-bkg;
+    border: solid 1px $border-logo;
+    color: $white;
+    margin: 38px 0 20px 0;
+    font-size: rem(12);
+    line-height: rem(20);
+    padding: 4px 12px 5px 10px;
+    border-radius: 15px;
+    transform: translateX(-115%);
+    text-transform: uppercase;
+    cursor: pointer;
+
+    &:hover {
+      opacity: 0.8;
+    }
+  }

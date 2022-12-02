@@ -1,3 +1,5 @@
+@import '../core/variables';
+
 .card {
   background: linear-gradient(to bottom, rgba(60, 60, 68, 1) 0%, rgba(234, 190, 63, 0.938813025210084) 100%);
   display: flex;
@@ -18,24 +20,6 @@
   }
   @media (min-width: 1100px) {
     width: rem(650);
-  }
-
-  &__button {
-    background-color: $reset-bkg;
-    border: solid 1px $border-logo;
-    color: $white;
-    margin: 38px 0 20px 0;
-    font-size: rem(12);
-    line-height: rem(20);
-    padding: 4px 12px 5px 10px;
-    border-radius: 15px;
-    transform: translateX(-115%);
-    text-transform: uppercase;
-    cursor: pointer;
-
-    &:hover {
-      opacity: 0.8;
-    }
   }
 
   &__article {

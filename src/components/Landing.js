@@ -1,3 +1,5 @@
+import "../styles/pages/Landing.scss";
+
 const Landing = (props) => {
   return (
     <main className="main">

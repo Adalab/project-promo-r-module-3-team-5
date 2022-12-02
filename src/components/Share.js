@@ -1,3 +1,5 @@
+import "../styles/components/Share.scss";
+
 const Share = (props) => {
   const handleCreateButton = (ev) => {
     ev.preventDefault();

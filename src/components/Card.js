@@ -1,9 +1,12 @@
 import Snitch from "./Snitch";
-import Reset from "./Reset";
+import ButtonReset from "./ButtonReset";
 import CardPreview from "./CardPreview";
 import Design from "./Design";
 import Form from "./Form";
 import Share from "./Share";
+
+import "../styles/pages/Card.scss";
+import "../styles/layout/_fill.scss";
 
 const Card = (props) => {
   return (
@@ -11,7 +14,7 @@ const Card = (props) => {
       <div className="main-container">
         <section className="mainCreate__card card js-preview">
           <Snitch></Snitch>
-          <Reset handleReset={props.handleReset}></Reset>
+          <ButtonReset handleReset={props.handleReset}></ButtonReset>
           <CardPreview
             // userData={userData} - PODRÍAMOS CREAR UN OBJETO USERDATA QUE ENGLOBE TODAS LAS PROPIEDADES (POR SI TENEMOS MUCHAS. EN CARDPREVIEW.JS, "PROPS.PALETE" PASARÍA A SER "PROPS.USERDATA.PALETE")
             palette={props.userData.palette}

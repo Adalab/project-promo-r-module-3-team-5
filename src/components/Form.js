@@ -1,3 +1,6 @@
+import GetAvatar from "./GetAvatar";
+import "../styles/components/Form.scss";
+
 const Form = (props) => {
   const handleChange = (ev) => {
     props.handleInput(ev.target.name, ev.target.value);
@@ -56,9 +59,11 @@ const Form = (props) => {
           </label>
 
           <div className="form-add-image">
-            {/* <GetAvatar
-          //Mirar en el App del proyecto
-          ></GetAvatar> */}
+            <GetAvatar
+              avatar={props.photo}
+              updateAvatar={props.userData}
+              //Mirar en el App del proyecto
+            ></GetAvatar>
 
             {/* <label className="form-button" htmlFor="photo">
               Añadir imagen

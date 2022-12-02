@@ -1,3 +1,6 @@
+import "../styles/pages/Card.scss";
+import "../styles/layout/_palette.scss";
+
 const CardPreview = (props) => {
   return (
     <article className={`card__article colorsPalette-${props.palette}`}>

@@ -1,3 +1,5 @@
+import "../styles/components/Snitch.scss";
+
 const Snitch = () => {
   return (
     <div className="snitch-container" id="container">

@@ -2,27 +2,30 @@
 /* eslint-disable react/jsx-no-target-blank */
 /* eslint-disable jsx-a11y/alt-text */
 // import { Routes, Route } from 'react-router-dom';
-import { useState } from 'react';
-import alohomoraLogo from '../images/card.png';
-import adalabLogo from '../images/adalab.png';
-import '../styles/main.scss';
-import Api from '../services/Api';
-import Card from './Card';
-import Header from './Header';
-import Footer from './Footer';
-import Landing from './Landing';
+import { useState } from "react";
+import alohomoraLogo from "../images/card.png";
+import adalabLogo from "../images/adalab.png";
+//STYLES
+// import "../styles/core/_reset.scss";
+import "../styles/main.scss";
+//COMPONENTS
+import Api from "../services/Api";
+import Card from "./Card";
+import Header from "./Header";
+import Footer from "./Footer";
+import Landing from "./Landing";
 
 function App() {
   const [userData, setUserData] = useState({
-    palette: '1',
-    name: '',
-    job: '',
+    palette: "1",
+    name: "",
+    job: "",
     photo:
-      'https://upload.wikimedia.org/wikipedia/commons/thumb/2/24/Stray_calico_cat_near_Sagami_River-01.jpg/640px-Stray_calico_cat_near_Sagami_River-01.jpg',
-    email: '',
-    phone: '',
-    linkedin: '',
-    github: '',
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/2/24/Stray_calico_cat_near_Sagami_River-01.jpg/640px-Stray_calico_cat_near_Sagami_River-01.jpg",
+    email: "",
+    phone: "",
+    linkedin: "",
+    github: "",
   });
   //Nueva variable estado para guardar dataResult
   const [dataResult, setDataResult] = useState(undefined);
@@ -31,15 +34,15 @@ function App() {
 
   // hago click en form y las demas tienen que ocultarse. Cambiamos su variable estado.
   const handleForm = () => {
-    setCollapsable('Form');
+    setCollapsable("Form");
   };
 
   const handleDesign = () => {
-    setCollapsable('Design');
+    setCollapsable("Design");
   };
 
   const handleShare = () => {
-    setCollapsable('Share');
+    setCollapsable("Share");
   };
 
   const handleInput = (input, value) => {
@@ -52,17 +55,16 @@ function App() {
   //FALTA CONECTAR CON FUNCIÓN HANDLEDRAFT EN RESET.JS
   const handleReset = () => {
     setUserData({
-      name: '',
-      palette: '1',
-      job: '',
-      photo: '',
-      email: '',
-      phone: '',
-      linkedin: '',
-      github: '',
+      name: "",
+      palette: "1",
+      job: "",
+      photo: "",
+      email: "",
+      phone: "",
+      linkedin: "",
+      github: "",
     });
   };
-
 
   const handleCreateCard = () => {
     Api(userData).then((data) => {

@@ -1,3 +1,5 @@
+import "../styles/components/ButtonReset.scss";
+
 const Reset = (props) => {
   const handleDraft = (ev) => {
     props.handleReset();

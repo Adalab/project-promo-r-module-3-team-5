@@ -1,7 +1,12 @@
 import React from "react";
 import PropTypes from "prop-types";
 import defaultAvatar from "../images/defaultAvatar.png";
-import "../stylesheets/GetAvatar.css";
+
+// ESTE ES EL CSS DE LOS PROFES (Ya en archivo, si no borrar)
+// import '../styles/components/GetAvatar.css';
+
+// ESTE ES EL SCSS DEL PROYECTO
+// import "../styles/main.scss";
 
 function GetAvatar(props) {
   // creamos una propiedad de la clase que es la que vamos a usar en varios métodos para cargar la imagen
@@ -62,7 +67,6 @@ function GetAvatar(props) {
   return (
     <div className="get-avatar">
       <label className="get-avatar__label">
-        Get avatar!
         <input
           type="file"
           ref={myFileField}
