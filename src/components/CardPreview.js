@@ -12,6 +12,7 @@ const CardPreview = (props) => {
           {props.job === "" ? "Front-end developer" : props.job}
         </p>
       </div>
+      {/* HACER UN CONDICIONAL: SI EL INPUT VALUE ESTÁ VACÍO, PONER LA IMAGEN POR DEFECTO, SI NO, QUE COJA EL VALUE DEL INPUT */}
       <div className="card__article--photo js__profile-image"></div>
       <nav className="card__article--links">
         <a

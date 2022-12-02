@@ -70,15 +70,17 @@ function GetAvatar(props) {
         <input
           type="file"
           ref={myFileField}
-          className="get-avatar__upload-field"
+          className="js__profile-upload-btn"
           onChange={uploadImage}
         />
       </label>
-
+      {/* ESTOS DOS DIVS TIENEN QUE SER SOLO UNO */}
       <div
         className="get-avatar__preview"
         style={{ backgroundImage: `url(${avatar})` }}
       ></div>
+
+      <div className="form-checkbox js__profile-preview"></div>
     </div>
   );
 }
