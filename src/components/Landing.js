@@ -1,4 +1,5 @@
-import "../styles/pages/Landing.scss";
+import '../styles/pages/Landing.scss';
+import { NavLink } from 'react-router-dom';
 
 const Landing = (props) => {
   return (
@@ -27,9 +28,9 @@ const Landing = (props) => {
           <p className="text-step">Comparte</p>
         </div>
       </div>
-      <a className="button-start" href="./Card.js">
+      <NavLink to="/card" className="button-start">
         Comenzar
-      </a>
+      </NavLink>
     </main>
   );
 };
