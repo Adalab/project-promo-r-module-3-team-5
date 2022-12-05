@@ -27,6 +27,8 @@ function App() {
     linkedin: "",
     github: "",
   });
+ 
+
   //Nueva variable estado para guardar dataResult
   const [dataResult, setDataResult] = useState(undefined);
   //Variable estado para los collapsables
@@ -50,6 +52,11 @@ function App() {
       ...userData,
       [input]: value,
     });
+     // Guardar en el localStorage.
+  localStorage.setItem("userDataLocal", JSON.stringify(userData));
+  //Pintar lo que esté guardado en el localStorage
+  JSON.parse(localStorage.getItem("userDataLocal"));
+ 
   };
 
   //FALTA CONECTAR CON FUNCIÓN HANDLEDRAFT EN RESET.JS
