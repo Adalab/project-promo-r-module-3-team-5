@@ -15,7 +15,7 @@ const Form = (props) => {
         <div className="js-eventFill">
           <i
             className={`form-arrow js-fill-down fa-solid fa-wand-sparkles ${
-              props.collapsable === "Form" ? "rotate" : null
+              props.collapsForm ? "rotate" : null
             } `}
             onClick={props.handleForm}
           ></i>
@@ -23,7 +23,7 @@ const Form = (props) => {
         </div>
       </legend>
 
-      {props.collapsable === "Form" ? (
+      {props.collapsForm ? (
         <div className="form-container transition js-fill ">
           <p className="form-label">Los campos con * son obligatorios</p>
           <label className="form-label" htmlFor="name">

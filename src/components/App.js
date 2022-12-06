@@ -34,20 +34,26 @@ function App() {
 
   //Nueva variable estado para guardar dataResult
   const [dataResult, setDataResult] = useState(undefined);
-  //Variable estado para los collapsables
-  const [collapsable, setCollapsable] = useState("Design");
 
-  // hago click en form y las demas tienen que ocultarse. Cambiamos su variable estado.
-  const handleForm = () => {
-    setCollapsable("Form");
-  };
-
+  // Collapsables.
+  // Cuando es true la sección está abierta, si es false, permanece cerrada.
+  const [collapsDesign, setCollapsDesign] = useState(true);
   const handleDesign = () => {
-    setCollapsable("Design");
+    setCollapsDesign(!collapsDesign);
+    setCollapsForm(false);
+    setCollapsShare(false);
   };
-
+  const [collapsForm, setCollapsForm] = useState(false);
+  const handleForm = () => {
+    setCollapsForm(!collapsForm);
+    setCollapsDesign(false);
+    setCollapsShare(false);
+  };
+  const [collapsShare, setCollapsShare] = useState(false);
   const handleShare = () => {
-    setCollapsable("Share");
+    setCollapsShare(!collapsShare);
+    setCollapsForm(false);
+    setCollapsDesign(false);
   };
 
   const handleInput = (input, value) => {
@@ -111,7 +117,9 @@ function App() {
               handleShare={handleShare}
               userData={userData}
               dataResult={dataResult}
-              collapsable={collapsable}
+              collapsDesign={collapsDesign}
+              collapsForm={collapsForm}
+              collapsShare={collapsShare}
             />
           }
         />

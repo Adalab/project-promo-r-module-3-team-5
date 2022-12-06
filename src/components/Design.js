@@ -15,14 +15,15 @@ const Design = (props) => {
         <span className="form-title--design">Diseña</span>
         <div className="js-event">
           <i
-            className={`form-arrow js-design-down fa-solid fa-wand-sparkles ${props.collapsable === "Design" ? "rotate" : null
+            className={`form-arrow js-design-down fa-solid fa-wand-sparkles ${
+              props.collapsDesign ? "rotate" : null
             } `}
             onClick={props.handleDesign}
           ></i>
         </div>
       </legend>
 
-      {props.collapsable === "Design" ? (
+      {props.collapsDesign ? (
         <div className="palette-container js-design ">
           <div className="colorpalete">
             <h2 className="colors">Colores</h2>

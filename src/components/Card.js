@@ -30,7 +30,7 @@ const Card = (props) => {
           <Design
             handleInput={props.handleInput}
             handleDesign={props.handleDesign}
-            collapsable={props.collapsable}
+            collapsDesign={props.collapsDesign}
             palette={props.userData.palette}
             rotateWand={props.rotateWand}
           ></Design>
@@ -38,7 +38,7 @@ const Card = (props) => {
           <Form
             handleInput={props.handleInput}
             handleForm={props.handleForm}
-            collapsable={props.collapsable}
+            collapsForm={props.collapsForm}
             name={props.userData.name}
             job={props.userData.job}
             phone={props.userData.phone}
@@ -50,7 +50,7 @@ const Card = (props) => {
           <Share
             handleCreateCard={props.handleCreateCard}
             handleShare={props.handleShare}
-            collapsable={props.collapsable}
+            collapsShare={props.collapsShare}
             dataResult={props.dataResult}
           ></Share>
         </form>
