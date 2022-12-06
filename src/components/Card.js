@@ -38,6 +38,9 @@ const Card = (props) => {
           <Form
             handleInput={props.handleInput}
             handleForm={props.handleForm}
+            handleAvatar={props.handleAvatar}
+            updateAvatar={props.updateAvatar}
+            avatar={props.avatar}
             collapsForm={props.collapsForm}
             name={props.userData.name}
             job={props.userData.job}

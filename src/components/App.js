@@ -5,8 +5,8 @@ import { Routes, Route } from "react-router-dom";
 import { useEffect, useState } from "react";
 import alohomoraLogo from "../images/card.png";
 import adalabLogo from "../images/adalab.png";
+import defaultAvatar from "../images/giphy.harry.gif";
 //STYLES
-// import "../styles/core/_reset.scss";
 import "../styles/main.scss";
 //COMPONENTS
 import Api from "../services/Api";
@@ -23,8 +23,7 @@ function App() {
       palette: "1",
       name: "",
       job: "",
-      photo:
-        "https://upload.wikimedia.org/wikipedia/commons/thumb/2/24/Stray_calico_cat_near_Sagami_River-01.jpg/640px-Stray_calico_cat_near_Sagami_River-01.jpg",
+      photo: { defaultAvatar },
       email: "",
       phone: "",
       linkedin: "",
@@ -34,6 +33,7 @@ function App() {
 
   //Nueva variable estado para guardar dataResult
   const [dataResult, setDataResult] = useState(undefined);
+  const [avatar, setAvatar] = useState("");
 
   // Collapsables.
   // Cuando es true la sección está abierta, si es false, permanece cerrada.
@@ -91,6 +91,7 @@ function App() {
       linkedin: "",
       github: "",
     });
+    setAvatar("");
   };
 
   const handleCreateCard = () => {
@@ -98,6 +99,10 @@ function App() {
       setDataResult(data);
       // La respuesta del servidor. Necesitamos guardarla en una variable estado para luego pintarla html.
     });
+  };
+
+  const updateAvatar = (avatar) => {
+    setAvatar(avatar);
   };
 
   return (
@@ -116,6 +121,8 @@ function App() {
               handleCreateCard={handleCreateCard}
               handleShare={handleShare}
               userData={userData}
+              updateAvatar={updateAvatar}
+              avatar={avatar}
               dataResult={dataResult}
               collapsDesign={collapsDesign}
               collapsForm={collapsForm}

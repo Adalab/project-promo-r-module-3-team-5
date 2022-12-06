@@ -5,6 +5,9 @@ const Form = (props) => {
   const handleChange = (ev) => {
     props.handleInput(ev.target.name, ev.target.value);
   };
+  // const handleAvatar = () => {
+  //   handleAvatar();
+  // };
   return (
     <fieldset className="form">
       <legend className="form-legend">
@@ -19,7 +22,6 @@ const Form = (props) => {
             } `}
             onClick={props.handleForm}
           ></i>
-          {/* Se lo añado a la varita */}
         </div>
       </legend>
 
@@ -60,26 +62,9 @@ const Form = (props) => {
 
           <div className="form-add-image">
             <GetAvatar
-              avatar={props.photo}
-              updateAvatar={props.userData}
-              //Mirar en el App del proyecto
+              avatar={props.avatar}
+              updateAvatar={props.updateAvatar}
             ></GetAvatar>
-
-            {/* <label className="form-button" htmlFor="photo">
-              Añadir imagen
-            </label>
-
-            <input
-              className="js__profile-upload-btn"
-              type="file"
-              id="photo"
-              name="photo"
-              accept="image/*"
-              hidden="hidden"
-              required=""
-              onChange={handleChange}
-            />
-            <div className="form-checkbox js__profile-preview"></div> */}
           </div>
 
           <label className="form-label" htmlFor="email">
