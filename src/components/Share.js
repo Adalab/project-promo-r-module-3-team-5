@@ -33,8 +33,9 @@ const Share = (props) => {
               <i className="fa-solid fa-address-card"></i>Crear tarjeta
             </button>
           </div>
-          <div className="line"></div>
           {props.dataResult !== undefined ? (
+            <>
+            <div className="line"></div> 
             <div className="card-created-success js-created-success">
               {/* Hemos quitado la clase hidden para enseñar el boton de twitter  y en share.scss, hemos comentado la línea : height: 0, para ver entera la sección;  */}
               <div className="card-created js-card-created">
@@ -64,11 +65,12 @@ const Share = (props) => {
                   Compartir en twitter
                 </a>
               </div>
-              <div className="line"></div>
             </div>
+            </>
           ) : null}
         </>
       ) : null}
+      <div className="line"></div>
     </fieldset>
   );
 };

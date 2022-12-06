@@ -15,8 +15,7 @@ const Design = (props) => {
         <span className="form-title--design">Diseña</span>
         <div className="js-event">
           <i
-            className={`form-arrow js-design-down fa-solid fa-wand-sparkles ${
-              props.collapsable === "Design" ? "rotate" : null
+            className={`form-arrow js-design-down fa-solid fa-wand-sparkles ${props.collapsable === "Design" ? "rotate" : null
             } `}
             onClick={props.handleDesign}
           ></i>
