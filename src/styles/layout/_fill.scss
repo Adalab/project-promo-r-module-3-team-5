@@ -1,4 +1,4 @@
-@import "../core/variables";
+@import '../core/variables';
 
 .form-container {
   display: flex;
@@ -85,6 +85,7 @@
     width: rem(30);
     height: rem(30);
     border: solid 1px $hospital-green;
+    background-size: cover;
   }
   &-line {
     margin-left: rem(20);
