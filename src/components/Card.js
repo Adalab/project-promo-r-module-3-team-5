@@ -24,6 +24,7 @@ const Card = (props) => {
             email={props.userData.email}
             linkedin={props.userData.linkedin}
             github={props.userData.github}
+            avatar={props.avatar}
           ></CardPreview>
         </section>
         <form action="" className="section-form js-form">

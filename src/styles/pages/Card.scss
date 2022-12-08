@@ -1,7 +1,11 @@
-@import '../core/variables';
+@import "../core/variables";
 
 .card {
-  background: linear-gradient(to bottom, rgba(60, 60, 68, 1) 0%, rgba(234, 190, 63, 0.938813025210084) 100%);
+  background: linear-gradient(
+    to bottom,
+    rgba(60, 60, 68, 1) 0%,
+    rgba(234, 190, 63, 0.938813025210084) 100%
+  );
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -53,7 +57,7 @@
       }
     }
     &--photo {
-      background: url('../../images/giphy.harry.gif');
+      // background: url('../../images/giphy.harry.gif');
       background-position: center;
       background-size: cover;
       background-repeat: no-repeat;
