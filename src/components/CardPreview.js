@@ -1,5 +1,6 @@
 import "../styles/pages/Card.scss";
 import "../styles/layout/_palette.scss";
+import Profile from "./Profile";
 
 const CardPreview = (props) => {
   return (
@@ -13,7 +14,8 @@ const CardPreview = (props) => {
         </p>
       </div>
       {/* HACER UN CONDICIONAL: SI EL INPUT VALUE ESTÁ VACÍO, PONER LA IMAGEN POR DEFECTO, SI NO, QUE COJA EL VALUE DEL INPUT */}
-      <div className="card__article--photo js__profile-image"></div>
+      {/* <div className="card__article--photo js__profile-image"></div> */}
+      <Profile avatar={props.avatar} />
       <nav className="card__article--links">
         <a
           href={`tel:${props.phone}`}

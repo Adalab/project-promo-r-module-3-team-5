@@ -1,4 +1,5 @@
 import GetAvatar from "./GetAvatar";
+
 import "../styles/components/Form.scss";
 
 const Form = (props) => {
@@ -31,7 +32,6 @@ const Form = (props) => {
           <label className="form-label" htmlFor="name">
             Nombre completo*
           </label>
-
           <input
             className="form-input js-input-name"
             type="text"
@@ -55,18 +55,45 @@ const Form = (props) => {
             onChange={handleChange}
             value={props.job}
           />
-
-          <label className="form-label" htmlFor="">
+          {/* ------------------como estaba antes----------------------------- */}
+          {/* <label className="form-label" htmlFor="">
             Imagen de perfil*
           </label>
 
           <div className="form-add-image">
-            <GetAvatar
+            {/* <GetAvatar
               avatar={props.avatar}
               updateAvatar={props.updateAvatar}
-            ></GetAvatar>
-          </div>
+            ></GetAvatar> */}
+          {/* </div> */}
+          {/* -----------------------como está ahora---------------- */}
+          <label className="form-label" htmlFor="">
+            Imagen de perfil*
+          </label>
+          <GetAvatar
+            updateAvatar={props.updateAvatar}
+            avatar={props.avatar}
+          ></GetAvatar>
 
+          {/* -----------todo esto me lo llevé a get avatar----------- */}
+          {/* <div className="form-add-image">
+            <label className="form-button" htmlFor="addImage">
+              Añadir imagen
+            </label>
+
+            <input
+              className="js__profile-upload-btn"
+              type="file"
+              id="addImage"
+              name="addImage"
+              accept="image/*"
+              hidden="hidden"
+              required=""
+              // onChange={handleInput}
+            />
+            <div className="form-checkbox js__profile-preview"></div>
+          </div> */}
+          {/* ----------------------------------------------------- */}
           <label className="form-label" htmlFor="email">
             Email*
           </label>
@@ -81,7 +108,6 @@ const Form = (props) => {
             onChange={handleChange}
             value={props.email}
           />
-
           <label className="form-label" htmlFor="phone">
             Teléfono
           </label>
@@ -95,11 +121,9 @@ const Form = (props) => {
             onChange={handleChange}
             value={props.phone}
           />
-
           <label className="form-label" htmlFor="linkedin">
             LinkedIn*
           </label>
-
           <input
             className="form-input js-input-linkedin"
             type="text"
@@ -110,7 +134,6 @@ const Form = (props) => {
             onChange={handleChange}
             value={props.linkedin}
           />
-
           <label className="form-label" htmlFor="github">
             Github*
           </label>
