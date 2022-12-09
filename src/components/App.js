@@ -33,13 +33,7 @@ function App() {
 
   //Nueva variable estado para guardar dataResult
   const [dataResult, setDataResult] = useState(undefined);
-  // const [avatar, setAvatar] = useState("");
-
-  // variable estado para getAvatar
   const [avatar, setAvatar] = useState("");
-  const updateAvatar = (avatar) => {
-    setAvatar(avatar);
-  };
 
   // Collapsables.
   // Cuando es true la sección está abierta, si es false, permanece cerrada.
@@ -107,9 +101,9 @@ function App() {
     });
   };
 
-  // const updateAvatar = (avatar) => {
-  //   setAvatar(avatar);
-  // };
+  const updateAvatar = (avatar) => {
+    setAvatar(avatar);
+  };
 
   return (
     <div className="App">
@@ -127,8 +121,8 @@ function App() {
               handleCreateCard={handleCreateCard}
               handleShare={handleShare}
               userData={userData}
-              avatar={avatar}
               updateAvatar={updateAvatar}
+              avatar={avatar}
               dataResult={dataResult}
               collapsDesign={collapsDesign}
               collapsForm={collapsForm}
