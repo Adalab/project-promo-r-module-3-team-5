@@ -107,6 +107,7 @@ function App() {
     setAvatar("");
   };
 
+  // eslint-disable-next-line no-unused-vars
   const handleResetCollapse = () => {
     if ( setUserData.name === "" || setUserData.job === ""  || setUserData.photo === "" || setUserData.email === "" || setUserData.phone === "" || setUserData.linkedin === "" || setUserData.github === "") {
       setCollapsShare(false);
@@ -120,10 +121,6 @@ function App() {
       // La respuesta del servidor. Necesitamos guardarla en una variable estado para luego pintarla html.
     });
   };
-
-  // const updateAvatar = (avatar) => {
-  //   setAvatar(avatar);
-  // };
 
   return (
     <div className="App">
@@ -141,8 +138,8 @@ function App() {
               handleCreateCard={handleCreateCard}
               handleShare={handleShare}
               userData={userData}
-              avatar={avatar}
               updateAvatar={updateAvatar}
+              avatar={avatar}
               dataResult={dataResult}
               collapsDesign={collapsDesign}
               collapsForm={collapsForm}

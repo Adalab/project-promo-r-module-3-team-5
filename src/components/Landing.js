@@ -1,5 +1,5 @@
-import '../styles/pages/Landing.scss';
-import { NavLink } from 'react-router-dom';
+import "../styles/pages/Landing.scss";
+import { NavLink } from "react-router-dom";
 
 const Landing = (props) => {
   return (
