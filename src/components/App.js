@@ -46,7 +46,7 @@ function App() {
   console.log(userData);
 
   //Nueva variable estado para guardar dataResult
-  const [dataResult, setDataResult] = useState(undefined);
+  const [dataResult, setDataResult] = useState("");
 
   // Collapsables.
   // Cuando es true la sección está abierta, si es false, permanece cerrada.
