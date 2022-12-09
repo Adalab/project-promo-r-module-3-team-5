@@ -88,7 +88,7 @@ function GetAvatar(props) {
         type="file"
         ref={myFileField}
         id="addImage"
-        name="addImage"
+        name="photo"
         accept="image/*"
         hidden="hidden"
         required=""
