@@ -94,3 +94,11 @@
 .share-twitter-icon {
   width: rem(18);
 }
+
+.fill_warning {
+  margin: 10px 0 15px 0;
+  padding: 15px 18px 0 19px;
+  align-self: center;
+  color: rgb(118,105,70);
+  border-top: rem(1) solid $silver;
+}
