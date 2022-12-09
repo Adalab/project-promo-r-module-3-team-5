@@ -5,7 +5,6 @@ import { Routes, Route } from "react-router-dom";
 import { useEffect, useState } from "react";
 import alohomoraLogo from "../images/card.png";
 import adalabLogo from "../images/adalab.png";
-import defaultAvatar from "../images/giphy.harry.gif";
 //STYLES
 import "../styles/main.scss";
 //COMPONENTS
@@ -17,29 +16,37 @@ import Landing from "./Landing";
 import ls from "../services/LocalStorage";
 
 function App() {
+  //_______________________________________________________________________
+  //Variable estado para getAvatar
+  const [avatar, setAvatar] = useState("");
+  const updateAvatar = (avatar) => {
+    setUserData({
+      ...userData,
+      photo: avatar,
+    });
+    setAvatar(avatar);
+  };
+  console.log(`tu foto seleccionada es ${avatar}`);
+  // Añadir la funcionalidad de que el objeto se rellene con la imagen por defecto?? o que le diga que debe rellenar los campos
+  //_______________________________________________________________________
   // Con esta línea le estamos diciendo que nos muestre lo guardado en el LocalStorage,'userDataLs'(lo he guardado en unas líneas más abajo en un useEffect). Si tiene algo guardado en el LocalStorage, que lo enseñe, en cambio, si está vacío, nos muestre nuestro valor inicial, que es nuestro objeto vacío.
   const [userData, setUserData] = useState(
+    // para mostrar lo guardado en el localStorage.Lo comento porque sino no coge bien el objeto.
     ls.get("userDataLs", {
       palette: "1",
       name: "",
       job: "",
-      photo: { defaultAvatar },
+      photo: "",
       email: "",
       phone: "",
       linkedin: "",
       github: "",
     })
   );
+  console.log(userData);
 
   //Nueva variable estado para guardar dataResult
   const [dataResult, setDataResult] = useState(undefined);
-  // const [avatar, setAvatar] = useState("");
-
-  // variable estado para getAvatar
-  const [avatar, setAvatar] = useState("");
-  const updateAvatar = (avatar) => {
-    setAvatar(avatar);
-  };
 
   // Collapsables.
   // Cuando es true la sección está abierta, si es false, permanece cerrada.
@@ -103,6 +110,7 @@ function App() {
   const handleCreateCard = () => {
     Api(userData).then((data) => {
       setDataResult(data);
+      console.log(data);
       // La respuesta del servidor. Necesitamos guardarla en una variable estado para luego pintarla html.
     });
   };
