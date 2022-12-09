@@ -107,6 +107,12 @@ function App() {
     setAvatar("");
   };
 
+  const handleResetCollapse = () => {
+    if ( setUserData.name === "" || setUserData.job === ""  || setUserData.photo === "" || setUserData.email === "" || setUserData.phone === "" || setUserData.linkedin === "" || setUserData.github === "") {
+      setCollapsShare(false);
+     }
+  }
+
   const handleCreateCard = () => {
     Api(userData).then((data) => {
       setDataResult(data);
