@@ -43,7 +43,12 @@ const Share = (props) => {
         </>
       );
     } else if (props.dataResult.success === false) {
-      return <p className="fill_warning">Debes rellenar todos los campos</p>;
+      return (
+        <>
+          <div className="line"></div>
+          <p className="fill_warning">Debes rellenar todos los campos</p>
+        </>
+      );
     }
   };
   return (

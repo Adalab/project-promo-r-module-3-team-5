@@ -31,7 +31,7 @@ function App() {
   //_______________________________________________________________________
   // Con esta línea le estamos diciendo que nos muestre lo guardado en el LocalStorage,'userDataLs'(lo he guardado en unas líneas más abajo en un useEffect). Si tiene algo guardado en el LocalStorage, que lo enseñe, en cambio, si está vacío, nos muestre nuestro valor inicial, que es nuestro objeto vacío.
   const [userData, setUserData] = useState(
-    // para mostrar lo guardado en el localStorage.Lo comento porque sino no coge bien el objeto.
+    // para mostrar lo guardado en el localStorage.
     ls.get("userDataLs", {
       palette: "1",
       name: "",
@@ -105,14 +105,23 @@ function App() {
       github: "",
     });
     setAvatar("");
+    setDataResult("");
   };
 
   // eslint-disable-next-line no-unused-vars
   const handleResetCollapse = () => {
-    if ( setUserData.name === "" || setUserData.job === ""  || setUserData.photo === "" || setUserData.email === "" || setUserData.phone === "" || setUserData.linkedin === "" || setUserData.github === "") {
+    if (
+      setUserData.name === "" ||
+      setUserData.job === "" ||
+      setUserData.photo === "" ||
+      setUserData.email === "" ||
+      setUserData.phone === "" ||
+      setUserData.linkedin === "" ||
+      setUserData.github === ""
+    ) {
       setCollapsShare(false);
-     }
-  }
+    }
+  };
 
   const handleCreateCard = () => {
     Api(userData).then((data) => {
