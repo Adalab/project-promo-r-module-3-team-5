@@ -1,11 +1,9 @@
-import "../styles/components/Snitch.scss";
+import '../styles/components/Snitch.scss';
 
 const Snitch = () => {
   return (
     <div className="snitch-container" id="container">
       <div id="the-div">
-        {/* <!--Inspiration https://dribbble.com/shots/4155133-Snitch-Animation -->
-              <!--and https://dribbble.com/shots/2493071-Wizarding-World-Icons --> */}
         <input type="checkbox" name="checkbox" id="animate" hidden="hidden" />
         <label htmlFor="animate">
           <div className="snitch js-snitch">

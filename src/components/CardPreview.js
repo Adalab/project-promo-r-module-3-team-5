@@ -1,21 +1,19 @@
-import "../styles/pages/Card.scss";
-import "../styles/layout/_palette.scss";
-import Profile from "./Profile";
+import '../styles/pages/Card.scss';
+import '../styles/layout/_palette.scss';
+import Profile from './Profile';
 
 const CardPreview = (props) => {
   return (
     <article className={`card__article colorsPalette-${props.palette}`}>
       <div className="card__article--data preview-header">
         <h2 className="name js-preview-name">
-          {props.name === "" ? "Nombre y Apellidos" : props.name}
+          {props.name === '' ? 'Nombre y Apellidos' : props.name}
         </h2>
         <p className="text js-preview-job">
-          {props.job === "" ? "Front-end developer" : props.job}
+          {props.job === '' ? 'Front-end developer' : props.job}
         </p>
       </div>
-      {/* HACER UN CONDICIONAL: SI EL INPUT VALUE ESTÁ VACÍO, PONER LA IMAGEN POR DEFECTO, SI NO, QUE COJA EL VALUE DEL INPUT */}
-      {/* <div className="card__article--photo js__profile-image"></div> */}
-      <Profile avatar={props.avatar} />
+      <Profile avatar={props.photo ? props.photo : props.avatar} />
       <nav className="card__article--links">
         <a
           href={`tel:${props.phone}`}

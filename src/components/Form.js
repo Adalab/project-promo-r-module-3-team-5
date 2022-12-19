@@ -57,7 +57,7 @@ const Form = (props) => {
           </label>
           <GetAvatar
             updateAvatar={props.updateAvatar}
-            avatar={props.avatar}
+            avatar={props.photo ? props.photo : props.avatar}
           ></GetAvatar>
           <label className="form-label" htmlFor="email">
             Email*

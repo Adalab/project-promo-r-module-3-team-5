@@ -1,4 +1,4 @@
-@import "../core/variables";
+@import '../core/variables';
 
 .card {
   background: linear-gradient(
@@ -39,7 +39,6 @@
       position: relative;
       border-left: solid 5px $dirty-blue;
       .name {
-        //color: $dark-green-blue;
         font-family: $cardFont;
         font-size: rem(18);
         font-weight: 700;
@@ -57,7 +56,6 @@
       }
     }
     &--photo {
-      // background: url('../../images/giphy.harry.gif');
       background-position: center;
       background-size: cover;
       background-repeat: no-repeat;

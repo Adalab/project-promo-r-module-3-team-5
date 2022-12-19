@@ -1,12 +1,12 @@
-import Snitch from "./Snitch";
-import ButtonReset from "./ButtonReset";
-import CardPreview from "./CardPreview";
-import Design from "./Design";
-import Form from "./Form";
-import Share from "./Share";
+import Snitch from './Snitch';
+import ButtonReset from './ButtonReset';
+import CardPreview from './CardPreview';
+import Design from './Design';
+import Form from './Form';
+import Share from './Share';
 
-import "../styles/pages/Card.scss";
-import "../styles/layout/_fill.scss";
+import '../styles/pages/Card.scss';
+import '../styles/layout/_fill.scss';
 
 const Card = (props) => {
   return (
@@ -25,6 +25,7 @@ const Card = (props) => {
             linkedin={props.userData.linkedin}
             github={props.userData.github}
             avatar={props.avatar}
+            photo={props.userData.photo}
           ></CardPreview>
         </section>
         <form action="" className="section-form js-form">
@@ -49,6 +50,7 @@ const Card = (props) => {
             email={props.userData.email}
             linkedin={props.userData.linkedin}
             github={props.userData.github}
+            photo={props.userData.photo}
           ></Form>
 
           <Share
