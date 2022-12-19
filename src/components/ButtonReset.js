@@ -3,6 +3,7 @@ import "../styles/components/ButtonReset.scss";
 const Reset = (props) => {
   const handleDraft = (ev) => {
     props.handleReset();
+    props.handleResetCollapse();
   };
   return (
     <>
