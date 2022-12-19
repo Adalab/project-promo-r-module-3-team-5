@@ -1,14 +1,11 @@
-import GetAvatar from "./GetAvatar";
+import GetAvatar from './GetAvatar';
 
-import "../styles/components/Form.scss";
+import '../styles/components/Form.scss';
 
 const Form = (props) => {
   const handleChange = (ev) => {
     props.handleInput(ev.target.name, ev.target.value);
   };
-  // const handleAvatar = () => {
-  //   handleAvatar();
-  // };
   return (
     <fieldset className="form">
       <legend className="form-legend">
@@ -19,7 +16,7 @@ const Form = (props) => {
         <div className="js-eventFill">
           <i
             className={`form-arrow js-fill-down fa-solid fa-wand-sparkles ${
-              props.collapsForm ? "rotate" : null
+              props.collapsForm ? 'rotate' : null
             } `}
             onClick={props.handleForm}
           ></i>
@@ -55,45 +52,13 @@ const Form = (props) => {
             onChange={handleChange}
             value={props.job}
           />
-          {/* ------------------como estaba antes----------------------------- */}
-          {/* <label className="form-label" htmlFor="">
-            Imagen de perfil*
-          </label>
-
-          <div className="form-add-image">
-            {/* <GetAvatar
-              avatar={props.avatar}
-              updateAvatar={props.updateAvatar}
-            ></GetAvatar> */}
-          {/* </div> */}
-          {/* -----------------------como está ahora---------------- */}
           <label className="form-label" htmlFor="">
-            Imagen de perfil*
+            Imagen de perfil (máx 50KB)*
           </label>
           <GetAvatar
             updateAvatar={props.updateAvatar}
             avatar={props.avatar}
           ></GetAvatar>
-
-          {/* -----------todo esto me lo llevé a get avatar----------- */}
-          {/* <div className="form-add-image">
-            <label className="form-button" htmlFor="addImage">
-              Añadir imagen
-            </label>
-
-            <input
-              className="js__profile-upload-btn"
-              type="file"
-              id="addImage"
-              name="addImage"
-              accept="image/*"
-              hidden="hidden"
-              required=""
-              // onChange={handleInput}
-            />
-            <div className="form-checkbox js__profile-preview"></div>
-          </div> */}
-          {/* ----------------------------------------------------- */}
           <label className="form-label" htmlFor="email">
             Email*
           </label>

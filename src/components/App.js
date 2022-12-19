@@ -1,42 +1,38 @@
-/* eslint-disable jsx-a11y/anchor-is-valid */
-/* eslint-disable react/jsx-no-target-blank */
-/* eslint-disable jsx-a11y/alt-text */
-import { Routes, Route } from "react-router-dom";
-import { useEffect, useState } from "react";
-import alohomoraLogo from "../images/card.png";
-import adalabLogo from "../images/adalab.png";
-import defaultAvatar from "../images/giphy.harry.gif";
+import { Routes, Route } from 'react-router-dom';
+import { useEffect, useState } from 'react';
+import alohomoraLogo from '../images/card.png';
+import adalabLogo from '../images/adalab.png';
+import defaultAvatar from '../images/giphy.harry.gif';
 //STYLES
-import "../styles/main.scss";
+import '../styles/main.scss';
 //COMPONENTS
-import Api from "../services/Api";
-import Card from "./Card";
-import Header from "./Header";
-import Footer from "./Footer";
-import Landing from "./Landing";
-import ls from "../services/LocalStorage";
+import Api from '../services/Api';
+import Card from './Card';
+import Header from './Header';
+import Footer from './Footer';
+import Landing from './Landing';
+import ls from '../services/LocalStorage';
 
 function App() {
   // Con esta línea le estamos diciendo que nos muestre lo guardado en el LocalStorage,'userDataLs'(lo he guardado en unas líneas más abajo en un useEffect). Si tiene algo guardado en el LocalStorage, que lo enseñe, en cambio, si está vacío, nos muestre nuestro valor inicial, que es nuestro objeto vacío.
   const [userData, setUserData] = useState(
-    ls.get("userDataLs", {
-      palette: "1",
-      name: "",
-      job: "",
+    ls.get('userDataLs', {
+      palette: '1',
+      name: '',
+      job: '',
       photo: { defaultAvatar },
-      email: "",
-      phone: "",
-      linkedin: "",
-      github: "",
+      email: '',
+      phone: '',
+      linkedin: '',
+      github: '',
     })
   );
 
   //Nueva variable estado para guardar dataResult
   const [dataResult, setDataResult] = useState(undefined);
-  // const [avatar, setAvatar] = useState("");
 
   // variable estado para getAvatar
-  const [avatar, setAvatar] = useState("");
+  const [avatar, setAvatar] = useState('');
   const updateAvatar = (avatar) => {
     setAvatar(avatar);
   };
@@ -75,7 +71,7 @@ function App() {
   // Cuando React renderice y pinte el HTML en la página ejecutará este useEffect
   useEffect(() => {
     // Guardamos objeto data en el local storage.
-    ls.set("userDataLs", userData);
+    ls.set('userDataLs', userData);
     // Aquí estamos llamando a nuestra función del fichero LocalStorage.Le estamos pasando como parámetro nuestro userData:
     /*
         const set = (key, value) => {
@@ -88,16 +84,16 @@ function App() {
   //FALTA CONECTAR CON FUNCIÓN HANDLEDRAFT EN RESET.JS
   const handleReset = () => {
     setUserData({
-      name: "",
-      palette: "1",
-      job: "",
-      photo: "",
-      email: "",
-      phone: "",
-      linkedin: "",
-      github: "",
+      name: '',
+      palette: '1',
+      job: '',
+      photo: '',
+      email: '',
+      phone: '',
+      linkedin: '',
+      github: '',
     });
-    setAvatar("");
+    setAvatar('');
   };
 
   const handleCreateCard = () => {
